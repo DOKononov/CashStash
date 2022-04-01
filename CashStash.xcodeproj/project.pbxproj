@@ -7,25 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		568E0BB627F7128800A91E4D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568E0BB427F7128800A91E4D /* ViewController.swift */; };
+		568E0BB727F7128900A91E4D /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 568E0BB527F7128800A91E4D /* ViewController.xib */; };
 		56926A0C27F6E39100ECF742 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56926A0B27F6E39100ECF742 /* AppDelegate.swift */; };
 		56926A0E27F6E39100ECF742 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56926A0D27F6E39100ECF742 /* SceneDelegate.swift */; };
-		56926A1027F6E39100ECF742 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56926A0F27F6E39100ECF742 /* ViewController.swift */; };
-		56926A1327F6E39100ECF742 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56926A1127F6E39100ECF742 /* Main.storyboard */; };
 		56926A1627F6E39100ECF742 /* CashStash.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 56926A1427F6E39100ECF742 /* CashStash.xcdatamodeld */; };
 		56926A1827F6E39300ECF742 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56926A1727F6E39300ECF742 /* Assets.xcassets */; };
 		56926A1B27F6E39300ECF742 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56926A1927F6E39300ECF742 /* LaunchScreen.storyboard */; };
+		56926A2627F70F9600ECF742 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56926A2527F70F9600ECF742 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		568E0BB427F7128800A91E4D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		568E0BB527F7128800A91E4D /* ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
 		56926A0827F6E39100ECF742 /* CashStash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CashStash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56926A0B27F6E39100ECF742 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		56926A0D27F6E39100ECF742 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		56926A0F27F6E39100ECF742 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		56926A1227F6E39100ECF742 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		56926A1527F6E39100ECF742 /* CashStash.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CashStash.xcdatamodel; sourceTree = "<group>"; };
 		56926A1727F6E39300ECF742 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		56926A1A27F6E39300ECF742 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		56926A1C27F6E39300ECF742 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		56926A2527F70F9600ECF742 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,16 +60,41 @@
 		56926A0A27F6E39100ECF742 /* CashStash */ = {
 			isa = PBXGroup;
 			children = (
-				56926A0B27F6E39100ECF742 /* AppDelegate.swift */,
-				56926A0D27F6E39100ECF742 /* SceneDelegate.swift */,
-				56926A0F27F6E39100ECF742 /* ViewController.swift */,
-				56926A1127F6E39100ECF742 /* Main.storyboard */,
-				56926A1727F6E39300ECF742 /* Assets.xcassets */,
-				56926A1927F6E39300ECF742 /* LaunchScreen.storyboard */,
+				56926A2227F6E3DD00ECF742 /* App */,
+				56926A2427F6E52800ECF742 /* Modules */,
+				56926A2327F6E41C00ECF742 /* Resources */,
 				56926A1C27F6E39300ECF742 /* Info.plist */,
 				56926A1427F6E39100ECF742 /* CashStash.xcdatamodeld */,
 			);
 			path = CashStash;
+			sourceTree = "<group>";
+		};
+		56926A2227F6E3DD00ECF742 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				56926A0B27F6E39100ECF742 /* AppDelegate.swift */,
+				56926A0D27F6E39100ECF742 /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		56926A2327F6E41C00ECF742 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				56926A2527F70F9600ECF742 /* Main.storyboard */,
+				56926A1727F6E39300ECF742 /* Assets.xcassets */,
+				56926A1927F6E39300ECF742 /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		56926A2427F6E52800ECF742 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				568E0BB427F7128800A91E4D /* ViewController.swift */,
+				568E0BB527F7128800A91E4D /* ViewController.xib */,
+			);
+			path = Modules;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -128,9 +155,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56926A2627F70F9600ECF742 /* Main.storyboard in Resources */,
 				56926A1B27F6E39300ECF742 /* LaunchScreen.storyboard in Resources */,
+				568E0BB727F7128900A91E4D /* ViewController.xib in Resources */,
 				56926A1827F6E39300ECF742 /* Assets.xcassets in Resources */,
-				56926A1327F6E39100ECF742 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,8 +170,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				56926A1627F6E39100ECF742 /* CashStash.xcdatamodeld in Sources */,
-				56926A1027F6E39100ECF742 /* ViewController.swift in Sources */,
 				56926A0C27F6E39100ECF742 /* AppDelegate.swift in Sources */,
+				568E0BB627F7128800A91E4D /* ViewController.swift in Sources */,
 				56926A0E27F6E39100ECF742 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -151,14 +179,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		56926A1127F6E39100ECF742 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				56926A1227F6E39100ECF742 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		56926A1927F6E39300ECF742 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
