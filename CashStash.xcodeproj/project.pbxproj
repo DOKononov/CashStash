@@ -7,19 +7,43 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		568E0BB627F7128800A91E4D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568E0BB427F7128800A91E4D /* ViewController.swift */; };
-		568E0BB727F7128900A91E4D /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 568E0BB527F7128800A91E4D /* ViewController.xib */; };
+		563482FA27FF4452002C3392 /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563482F927FF4452002C3392 /* Wallet.swift */; };
+		566863D8280446F900FDF345 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566863D7280446F900FDF345 /* CoreDataService.swift */; };
+		566863E02804569800FDF345 /* CurrencyPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566863DE2804569800FDF345 /* CurrencyPageVC.swift */; };
+		566863E12804569800FDF345 /* CurrencyPageVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 566863DF2804569800FDF345 /* CurrencyPageVC.xib */; };
+		566863E3280465DA00FDF345 /* String+Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566863E2280465DA00FDF345 /* String+Double.swift */; };
+		566863EB28048C2500FDF345 /* Double+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566863EA28048C2500FDF345 /* Double+String.swift */; };
+		566863EE2804967500FDF345 /* WalletEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566863EC2804967500FDF345 /* WalletEntity+CoreDataClass.swift */; };
+		566863EF2804967500FDF345 /* WalletEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566863ED2804967500FDF345 /* WalletEntity+CoreDataProperties.swift */; };
+		568E0BB627F7128800A91E4D /* StashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568E0BB427F7128800A91E4D /* StashVC.swift */; };
+		568E0BB727F7128900A91E4D /* StashVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 568E0BB527F7128800A91E4D /* StashVC.xib */; };
+		568E0BB927F7196000A91E4D /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568E0BB827F7196000A91E4D /* NetworkService.swift */; };
+		568E0BBD27F71F5400A91E4D /* ExcangeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568E0BBC27F71F5400A91E4D /* ExcangeModel.swift */; };
 		56926A0C27F6E39100ECF742 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56926A0B27F6E39100ECF742 /* AppDelegate.swift */; };
 		56926A0E27F6E39100ECF742 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56926A0D27F6E39100ECF742 /* SceneDelegate.swift */; };
 		56926A1627F6E39100ECF742 /* CashStash.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 56926A1427F6E39100ECF742 /* CashStash.xcdatamodeld */; };
 		56926A1827F6E39300ECF742 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56926A1727F6E39300ECF742 /* Assets.xcassets */; };
 		56926A1B27F6E39300ECF742 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56926A1927F6E39300ECF742 /* LaunchScreen.storyboard */; };
 		56926A2627F70F9600ECF742 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56926A2527F70F9600ECF742 /* Main.storyboard */; };
+		56BC36F327F9EC3D006730A0 /* StashTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BC36F127F9EC3D006730A0 /* StashTableViewCell.swift */; };
+		56BC36F427F9EC3D006730A0 /* StashTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56BC36F227F9EC3D006730A0 /* StashTableViewCell.xib */; };
+		56BC36F727F9F9BB006730A0 /* StashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BC36F627F9F9BB006730A0 /* StashViewModel.swift */; };
+		56BC36FD27FA080E006730A0 /* CurrencyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BC36FC27FA080E006730A0 /* CurrencyList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		568E0BB427F7128800A91E4D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		568E0BB527F7128800A91E4D /* ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
+		563482F927FF4452002C3392 /* Wallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wallet.swift; sourceTree = "<group>"; };
+		566863D7280446F900FDF345 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
+		566863DE2804569800FDF345 /* CurrencyPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyPageVC.swift; sourceTree = "<group>"; };
+		566863DF2804569800FDF345 /* CurrencyPageVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CurrencyPageVC.xib; sourceTree = "<group>"; };
+		566863E2280465DA00FDF345 /* String+Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Double.swift"; sourceTree = "<group>"; };
+		566863EA28048C2500FDF345 /* Double+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+String.swift"; sourceTree = "<group>"; };
+		566863EC2804967500FDF345 /* WalletEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WalletEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		566863ED2804967500FDF345 /* WalletEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WalletEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		568E0BB427F7128800A91E4D /* StashVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StashVC.swift; sourceTree = "<group>"; };
+		568E0BB527F7128800A91E4D /* StashVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StashVC.xib; sourceTree = "<group>"; };
+		568E0BB827F7196000A91E4D /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		568E0BBC27F71F5400A91E4D /* ExcangeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExcangeModel.swift; sourceTree = "<group>"; };
 		56926A0827F6E39100ECF742 /* CashStash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CashStash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56926A0B27F6E39100ECF742 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		56926A0D27F6E39100ECF742 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -28,6 +52,10 @@
 		56926A1A27F6E39300ECF742 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		56926A1C27F6E39300ECF742 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		56926A2527F70F9600ECF742 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		56BC36F127F9EC3D006730A0 /* StashTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StashTableViewCell.swift; sourceTree = "<group>"; };
+		56BC36F227F9EC3D006730A0 /* StashTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StashTableViewCell.xib; sourceTree = "<group>"; };
+		56BC36F627F9F9BB006730A0 /* StashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StashViewModel.swift; sourceTree = "<group>"; };
+		56BC36FC27FA080E006730A0 /* CurrencyList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +69,73 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		563482FF27FF4630002C3392 /* AddNewWalletVC */ = {
+			isa = PBXGroup;
+			children = (
+				566863DE2804569800FDF345 /* CurrencyPageVC.swift */,
+				566863DF2804569800FDF345 /* CurrencyPageVC.xib */,
+			);
+			path = AddNewWalletVC;
+			sourceTree = "<group>";
+		};
+		566863D628042A2800FDF345 /* StashVC */ = {
+			isa = PBXGroup;
+			children = (
+				56BC36F527F9EC45006730A0 /* StashTableViewCell */,
+				568E0BB427F7128800A91E4D /* StashVC.swift */,
+				568E0BB527F7128800A91E4D /* StashVC.xib */,
+				56BC36F627F9F9BB006730A0 /* StashViewModel.swift */,
+			);
+			path = StashVC;
+			sourceTree = "<group>";
+		};
+		566863D92804487D00FDF345 /* CoreDataService */ = {
+			isa = PBXGroup;
+			children = (
+				566863E52804683A00FDF345 /* Modeles */,
+				566863D7280446F900FDF345 /* CoreDataService.swift */,
+				56926A1427F6E39100ECF742 /* CashStash.xcdatamodeld */,
+			);
+			path = CoreDataService;
+			sourceTree = "<group>";
+		};
+		566863E4280465E500FDF345 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				566863E2280465DA00FDF345 /* String+Double.swift */,
+				566863EA28048C2500FDF345 /* Double+String.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		566863E52804683A00FDF345 /* Modeles */ = {
+			isa = PBXGroup;
+			children = (
+				566863EC2804967500FDF345 /* WalletEntity+CoreDataClass.swift */,
+				566863ED2804967500FDF345 /* WalletEntity+CoreDataProperties.swift */,
+			);
+			path = Modeles;
+			sourceTree = "<group>";
+		};
+		568E0BBA27F7196C00A91E4D /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				568E0BB827F7196000A91E4D /* NetworkService.swift */,
+				566863D92804487D00FDF345 /* CoreDataService */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		568E0BBB27F71F4200A91E4D /* Modeles */ = {
+			isa = PBXGroup;
+			children = (
+				568E0BBC27F71F5400A91E4D /* ExcangeModel.swift */,
+				56BC36FC27FA080E006730A0 /* CurrencyList.swift */,
+				563482F927FF4452002C3392 /* Wallet.swift */,
+			);
+			path = Modeles;
+			sourceTree = "<group>";
+		};
 		569269FF27F6E39100ECF742 = {
 			isa = PBXGroup;
 			children = (
@@ -60,11 +155,13 @@
 		56926A0A27F6E39100ECF742 /* CashStash */ = {
 			isa = PBXGroup;
 			children = (
+				566863E4280465E500FDF345 /* Helpers */,
 				56926A2227F6E3DD00ECF742 /* App */,
+				568E0BBA27F7196C00A91E4D /* Services */,
+				568E0BBB27F71F4200A91E4D /* Modeles */,
 				56926A2427F6E52800ECF742 /* Modules */,
 				56926A2327F6E41C00ECF742 /* Resources */,
 				56926A1C27F6E39300ECF742 /* Info.plist */,
-				56926A1427F6E39100ECF742 /* CashStash.xcdatamodeld */,
 			);
 			path = CashStash;
 			sourceTree = "<group>";
@@ -91,10 +188,19 @@
 		56926A2427F6E52800ECF742 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				568E0BB427F7128800A91E4D /* ViewController.swift */,
-				568E0BB527F7128800A91E4D /* ViewController.xib */,
+				566863D628042A2800FDF345 /* StashVC */,
+				563482FF27FF4630002C3392 /* AddNewWalletVC */,
 			);
 			path = Modules;
+			sourceTree = "<group>";
+		};
+		56BC36F527F9EC45006730A0 /* StashTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				56BC36F127F9EC3D006730A0 /* StashTableViewCell.swift */,
+				56BC36F227F9EC3D006730A0 /* StashTableViewCell.xib */,
+			);
+			path = StashTableViewCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -155,9 +261,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				566863E12804569800FDF345 /* CurrencyPageVC.xib in Resources */,
+				56BC36F427F9EC3D006730A0 /* StashTableViewCell.xib in Resources */,
 				56926A2627F70F9600ECF742 /* Main.storyboard in Resources */,
 				56926A1B27F6E39300ECF742 /* LaunchScreen.storyboard in Resources */,
-				568E0BB727F7128900A91E4D /* ViewController.xib in Resources */,
+				568E0BB727F7128900A91E4D /* StashVC.xib in Resources */,
 				56926A1827F6E39300ECF742 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -169,9 +277,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				563482FA27FF4452002C3392 /* Wallet.swift in Sources */,
+				566863EF2804967500FDF345 /* WalletEntity+CoreDataProperties.swift in Sources */,
+				56BC36FD27FA080E006730A0 /* CurrencyList.swift in Sources */,
+				568E0BB927F7196000A91E4D /* NetworkService.swift in Sources */,
 				56926A1627F6E39100ECF742 /* CashStash.xcdatamodeld in Sources */,
+				566863D8280446F900FDF345 /* CoreDataService.swift in Sources */,
 				56926A0C27F6E39100ECF742 /* AppDelegate.swift in Sources */,
-				568E0BB627F7128800A91E4D /* ViewController.swift in Sources */,
+				568E0BBD27F71F5400A91E4D /* ExcangeModel.swift in Sources */,
+				568E0BB627F7128800A91E4D /* StashVC.swift in Sources */,
+				56BC36F327F9EC3D006730A0 /* StashTableViewCell.swift in Sources */,
+				566863E3280465DA00FDF345 /* String+Double.swift in Sources */,
+				566863E02804569800FDF345 /* CurrencyPageVC.swift in Sources */,
+				566863EE2804967500FDF345 /* WalletEntity+CoreDataClass.swift in Sources */,
+				566863EB28048C2500FDF345 /* Double+String.swift in Sources */,
+				56BC36F727F9F9BB006730A0 /* StashViewModel.swift in Sources */,
 				56926A0E27F6E39100ECF742 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
