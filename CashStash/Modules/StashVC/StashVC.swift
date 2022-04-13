@@ -39,7 +39,7 @@ class StashVC: UIViewController {
     
     @objc private func addNewWallet() {
         //TODO: -add new wallet
-//        openWalletePage(title: "New wallet")
+        openWalletePage(wallete: nil)
     }
 
     private func registerStashCell() {
@@ -50,13 +50,12 @@ class StashVC: UIViewController {
     private func bind() {
         viewModel.didChangeContent = {
             self.tableView.reloadData()
-            self.totalAmountLabel.text = self.viewModel.totalAmount.roundStr()
+            self.totalAmountLabel.text = self.viewModel.totalAmount.string()
         }
     }
     
-    private func openWalletePage(wallete: Wallet) {
+    private func openWalletePage(wallete: Wallet?) {
         let currencyPage = CurrencyPageVC(nibName: "\(CurrencyPageVC.self)", bundle: nil)
-//        currencyPage.textForTitle = title
         currencyPage.selectedWallet = wallete
         present(currencyPage, animated: true)
     }

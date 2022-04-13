@@ -94,7 +94,7 @@ class StashViewModel: NSObject, StashViewModelProtocol, NSFetchedResultsControll
         walletsList.forEach { wallet in
             tempSumm += wallet.amount / wallet.rate
         }
-        totalAmount = tempSumm
+        totalAmount = round(tempSumm)
     }
     
 }

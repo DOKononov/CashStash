@@ -39,7 +39,6 @@ class NetworkService {
                 if let exchange = try? JSONDecoder().decode(ExcangeModel.self, from: data) {
                     if let result =  exchange.rates[to]?.rate.double() {
                         DispatchQueue.main.async {
-                            print(result)
                             complition(result)
                         }
                     }

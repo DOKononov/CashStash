@@ -69,13 +69,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		563482FF27FF4630002C3392 /* AddNewWalletVC */ = {
+		563482FF27FF4630002C3392 /* CurrencyPageVC */ = {
 			isa = PBXGroup;
 			children = (
 				566863DE2804569800FDF345 /* CurrencyPageVC.swift */,
 				566863DF2804569800FDF345 /* CurrencyPageVC.xib */,
 			);
-			path = AddNewWalletVC;
+			path = CurrencyPageVC;
 			sourceTree = "<group>";
 		};
 		566863D628042A2800FDF345 /* StashVC */ = {
@@ -189,7 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				566863D628042A2800FDF345 /* StashVC */,
-				563482FF27FF4630002C3392 /* AddNewWalletVC */,
+				563482FF27FF4630002C3392 /* CurrencyPageVC */,
 			);
 			path = Modules;
 			sourceTree = "<group>";

@@ -12,8 +12,4 @@ extension Double {
     func string() -> String {
         return String(self)
     }
-    
-    func roundStr() -> String {
-        return String(Int(self))
-    }
 }
