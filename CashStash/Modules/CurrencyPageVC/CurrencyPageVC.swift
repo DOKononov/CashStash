@@ -32,30 +32,28 @@ final class CurrencyPageVC: UIViewController {
     
     
     @IBAction private func saveDidTapped(_ sender: UIButton) {
+        guard walletNameTF.hasText, amountTF.hasText, currencyTF.hasText else { return }
         //if no entity
         if !entityIsExist() {
-            saveNewEntity()
+            let newWalletEntity = WalletEntity(context: CoreDataService.shared.managedObjectContext)
+            saveNewEntity(newWalletEntity)
         } else {
             //else change existing wallet
-            changeExistingEntity()
+            guard let entityToChange = getEntityFromCD() else {return}
+            saveNewEntity(entityToChange)
         }
         
         self.dismiss(animated: true)
     }
     
     
-    private func saveNewEntity() {
-        guard walletNameTF.hasText,
-              amountTF.hasText,
-              currencyTF.hasText else { return }
-        
+    private func saveNewEntity(_ newWalletEntity: WalletEntity) {
         guard let walletName = walletNameTF.text,
               let amount = amountTF.text,
               let currency = currencyTF.text else {return}
         
-        let newWalletEntity = WalletEntity(context: CoreDataService.shared.managedObjectContext)
         newWalletEntity.walletName = walletName
-        newWalletEntity.amount = amount.double()
+        newWalletEntity.amount = round(amount.double() * 100) / 100
         newWalletEntity.currency = currency
         networkService.getRateToUSD(to: currency) { rate in
             newWalletEntity.rate = rate
@@ -66,16 +64,11 @@ final class CurrencyPageVC: UIViewController {
     private func entityIsExist() -> Bool {
         
         if let selectedWallet = selectedWallet,
-            getEntityFromCD()?.walletName == selectedWallet.name {
-                return true
-            }  else {
-                return false
-            }
+           getEntityFromCD()?.walletName == selectedWallet.name {
+            return true
+        }  else {
+            return false
         }
-
-    
-    private func changeExistingEntity() {
-        
     }
     
     private func getEntityFromCD() -> WalletEntity? {

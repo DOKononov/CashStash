@@ -12,4 +12,13 @@ extension Double {
     func string() -> String {
         return String(self)
     }
+    
+     func formatNumber() -> String {
+        let formater = NumberFormatter()
+        formater.numberStyle = .decimal
+        formater.decimalSeparator = ","
+        formater.groupingSeparator = " "
+        guard let str = formater.string(from: self as NSNumber) else {return "error"}
+        return str
+    }
 }

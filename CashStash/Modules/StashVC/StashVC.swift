@@ -25,21 +25,7 @@ class StashVC: UIViewController {
         bind()
         viewModel.loadWalletsEntities()
         setupNavigationItem()
-
         viewModel.updateTotalAmount()
-
-    }
-
-    private func setupNavigationItem() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus"),
-                                                            style: .done,
-                                                            target: self,
-                                                            action: #selector(addNewWallet))
-    }
-    
-    @objc private func addNewWallet() {
-        //TODO: -add new wallet
-        openWalletePage(wallete: nil)
     }
 
     private func registerStashCell() {
@@ -50,13 +36,13 @@ class StashVC: UIViewController {
     private func bind() {
         viewModel.didChangeContent = {
             self.tableView.reloadData()
-            self.totalAmountLabel.text = self.viewModel.totalAmount.string()
+            self.totalAmountLabel.text = self.viewModel.totalAmount.formatNumber()
         }
     }
     
-    private func openWalletePage(wallete: Wallet?) {
+    private func openWalletePage(wallet: Wallet?) {
         let currencyPage = CurrencyPageVC(nibName: "\(CurrencyPageVC.self)", bundle: nil)
-        currencyPage.selectedWallet = wallete
+        currencyPage.selectedWallet = wallet
         present(currencyPage, animated: true)
     }
 
@@ -78,11 +64,36 @@ extension StashVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         //TODO: - open currency page
-        openWalletePage(wallete: viewModel.walletsList[indexPath.row])
+        openWalletePage(wallet: viewModel.walletsList[indexPath.row])
     }
     
     //MARK: -delete entity
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
     viewModel.deleteWallet(indexPath: indexPath)
+    }
+}
+
+// MARK: - BarButton
+extension StashVC {
+    private func setupNavigationItem() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus"),
+                                                            style: .done,
+                                                            target: self,
+                                                            action: #selector(addNewWallet))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "arrow.clockwise"),
+                                                           style: .done,
+                                                           target: self,
+                                                           action: #selector(refreshTotal))
+    }
+    
+    @objc private func addNewWallet() {
+        //TODO: -add new wallet
+        openWalletePage(wallet: nil)
+    }
+    
+    @objc private func refreshTotal() {
+        print("before", viewModel.totalAmount)
+        viewModel.updateTotalAmount()
+        print("after", viewModel.totalAmount)
     }
 }

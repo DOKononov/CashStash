@@ -18,7 +18,7 @@ class StashTableViewCell: UITableViewCell {
     func setup(wallet: Wallet) {
         rateLabel.text = "rate: " + wallet.rate.string()
         walletNameLabel.text = wallet.name
-        amountLabel.text = wallet.amount.string()
+        amountLabel.text = wallet.amount.formatNumber()
         currencyLabel.text = wallet.currency
     }
 }

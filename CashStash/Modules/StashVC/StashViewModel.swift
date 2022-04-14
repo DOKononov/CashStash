@@ -36,10 +36,10 @@ class StashViewModel: NSObject, StashViewModelProtocol, NSFetchedResultsControll
     }
     
     var totalAmount: Double = 0
-    
     var didChangeContent: (() -> Void)?
-
-    func updateTotalAmount() { }
+    func updateTotalAmount() {
+        calcTotalAmount()
+    }
     
     private func setupFetchResultController() {
         let request = WalletEntity.fetchRequest()

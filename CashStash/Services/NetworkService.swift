@@ -35,11 +35,15 @@ class NetworkService {
         URLSession.shared.dataTask(with: request) { data, responce, error in
             if let error = error {
                 print(error.localizedDescription)
+                if let rate: Double = UserDefaults.standard.object(forKey: to) as? Double {
+                    complition(rate)
+                }
             } else if let data = data {
                 if let exchange = try? JSONDecoder().decode(ExcangeModel.self, from: data) {
-                    if let result =  exchange.rates[to]?.rate.double() {
+                    if let rate =  exchange.rates[to]?.rate.double() {
                         DispatchQueue.main.async {
-                            complition(result)
+                            UserDefaults.standard.set(rate, forKey: to)
+                            complition(rate)
                         }
                     }
                 }
