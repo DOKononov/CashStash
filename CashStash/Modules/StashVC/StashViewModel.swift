@@ -91,10 +91,8 @@ class StashViewModel: NSObject, StashViewModelProtocol, NSFetchedResultsControll
     
     private func calcTotalAmount() {
         var tempSumm = 0.0
-        walletsList.forEach { wallet in
-            tempSumm += wallet.amount / wallet.rate
-        }
-        totalAmount = round(tempSumm)
+        walletsList.forEach { tempSumm += ($0.amount / $0.rate).myRound() }
+        totalAmount = tempSumm
     }
     
 }

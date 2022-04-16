@@ -36,7 +36,7 @@ class StashVC: UIViewController {
     private func bind() {
         viewModel.didChangeContent = {
             self.tableView.reloadData()
-            self.totalAmountLabel.text = self.viewModel.totalAmount.formatNumber()
+            self.totalAmountLabel.text = self.viewModel.totalAmount.myRound().formatNumber() + " USD"
         }
     }
     
@@ -51,7 +51,6 @@ class StashVC: UIViewController {
 
 extension StashVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //TODO: -array.count
         return viewModel.walletsList.count
     }
     
@@ -63,7 +62,6 @@ extension StashVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        //TODO: - open currency page
         openWalletePage(wallet: viewModel.walletsList[indexPath.row])
     }
     
@@ -92,8 +90,6 @@ extension StashVC {
     }
     
     @objc private func refreshTotal() {
-        print("before", viewModel.totalAmount)
         viewModel.updateTotalAmount()
-        print("after", viewModel.totalAmount)
     }
 }

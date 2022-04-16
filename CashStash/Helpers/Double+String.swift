@@ -21,4 +21,8 @@ extension Double {
         guard let str = formater.string(from: self as NSNumber) else {return "error"}
         return str
     }
+    
+    func myRound() -> Double {
+        return (self * 100).rounded() / 100.0
+    }
 }

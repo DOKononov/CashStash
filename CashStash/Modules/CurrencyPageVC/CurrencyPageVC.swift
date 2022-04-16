@@ -53,7 +53,7 @@ final class CurrencyPageVC: UIViewController {
               let currency = currencyTF.text else {return}
         
         newWalletEntity.walletName = walletName
-        newWalletEntity.amount = round(amount.double() * 100) / 100
+        newWalletEntity.amount = amount.double().myRound()
         newWalletEntity.currency = currency
         networkService.getRateToUSD(to: currency) { rate in
             newWalletEntity.rate = rate

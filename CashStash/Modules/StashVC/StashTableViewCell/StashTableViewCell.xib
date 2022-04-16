@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -37,31 +38,48 @@
                         </constraints>
                     </stackView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3cu-wX-C2V">
-                        <rect key="frame" x="227" y="12" width="38.5" height="20.5"/>
+                        <rect key="frame" x="227" y="4" width="38.5" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="USD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lsg-u1-Za6">
-                        <rect key="frame" x="273.5" y="12" width="34.5" height="20.5"/>
+                        <rect key="frame" x="273.5" y="4" width="34.5" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="USD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PlP-UA-7mM">
+                        <rect key="frame" x="277" y="22" width="31" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" systemColor="systemGray2Color"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cHs-yu-0K4">
+                        <rect key="frame" x="234.5" y="22" width="34.5" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" systemColor="systemGray2Color"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="lsg-u1-Za6" secondAttribute="trailing" constant="12" id="0nB-nS-t5s"/>
+                    <constraint firstAttribute="trailing" secondItem="lsg-u1-Za6" secondAttribute="trailing" constant="12" id="258-cf-ruT"/>
+                    <constraint firstItem="lsg-u1-Za6" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="AmY-Dv-v0k"/>
                     <constraint firstItem="U1Y-xg-Shy" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="B5U-gR-xww"/>
-                    <constraint firstItem="3cu-wX-C2V" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="T0K-GU-JMR"/>
-                    <constraint firstItem="lsg-u1-Za6" firstAttribute="leading" secondItem="3cu-wX-C2V" secondAttribute="trailing" constant="8" id="WNq-fg-jkr"/>
-                    <constraint firstItem="lsg-u1-Za6" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="kQv-EC-sCn"/>
+                    <constraint firstItem="PlP-UA-7mM" firstAttribute="leading" secondItem="cHs-yu-0K4" secondAttribute="trailing" constant="8" id="EEN-09-0av"/>
+                    <constraint firstAttribute="bottom" secondItem="cHs-yu-0K4" secondAttribute="bottom" constant="4" id="brd-B1-WsH"/>
+                    <constraint firstItem="3cu-wX-C2V" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="isP-0p-8Hh"/>
                     <constraint firstAttribute="bottom" secondItem="U1Y-xg-Shy" secondAttribute="bottom" constant="4" id="oeK-68-VOM"/>
+                    <constraint firstItem="lsg-u1-Za6" firstAttribute="leading" secondItem="3cu-wX-C2V" secondAttribute="trailing" constant="8" symbolic="YES" id="pXZ-so-3rm"/>
                     <constraint firstItem="U1Y-xg-Shy" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="stg-gs-V4k"/>
+                    <constraint firstAttribute="bottom" secondItem="PlP-UA-7mM" secondAttribute="bottom" constant="4" id="t4m-TT-Rrq"/>
+                    <constraint firstAttribute="trailing" secondItem="PlP-UA-7mM" secondAttribute="trailing" constant="12" id="z20-wy-9ps"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="amountLabel" destination="3cu-wX-C2V" id="VAq-d0-j50"/>
+                <outlet property="amountUSDLabel" destination="cHs-yu-0K4" id="U0X-UK-IOf"/>
                 <outlet property="currencyLabel" destination="lsg-u1-Za6" id="Exl-St-nrk"/>
                 <outlet property="rateLabel" destination="gGy-yo-v6d" id="TTv-Gc-tcJ"/>
                 <outlet property="walletNameLabel" destination="XhA-mW-dN8" id="FH2-yf-tHC"/>
@@ -69,4 +87,9 @@
             <point key="canvasLocation" x="139" y="94"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>

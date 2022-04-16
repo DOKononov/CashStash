@@ -11,6 +11,9 @@ final class Wallet {
     var name: String
     var currency: String
     var amount: Double
+    var amountUSD: Double {
+        return (amount / rate).myRound()
+    }
     var rate: Double
     
     init(name: String, currency: String, amount: Double = 0, rate: Double) {

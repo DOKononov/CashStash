@@ -19,7 +19,7 @@ enum CurrencyList: String {
 //    let name: String
 //    let code: String
 //    let country: String
-//    
+//
 //    init(code: String, name: String, country: String) {
 //        self.name = name
 //        self.code = code
@@ -28,9 +28,8 @@ enum CurrencyList: String {
 //}
 //
 //struct CurrencyLists {
-//    var list: [Currency] = []
+//    var list: [Currency] = [
+//        Currency(code: "EUR", name: "Euro", country: "Europe"),
+//        Currency(code: "USD", name: "United States dollar", country: "United States")),
+//    ]
 //}
-//var currencyList: [Currency] = []
-//currencyList.append(Currency(code: "EUR", name: "Euro", country: "Europe"))
-//currencyList.append(Currency(code: "USD", name: "United States dollar", country: "United States"))
-
