@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		563482FA27FF4452002C3392 /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563482F927FF4452002C3392 /* Wallet.swift */; };
+		5634E39C280D6AA5009AA3DA /* CurrencyPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5634E39B280D6AA5009AA3DA /* CurrencyPageViewModel.swift */; };
 		566863D8280446F900FDF345 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566863D7280446F900FDF345 /* CoreDataService.swift */; };
 		566863E02804569800FDF345 /* CurrencyPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566863DE2804569800FDF345 /* CurrencyPageVC.swift */; };
 		566863E12804569800FDF345 /* CurrencyPageVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 566863DF2804569800FDF345 /* CurrencyPageVC.xib */; };
@@ -33,6 +34,7 @@
 
 /* Begin PBXFileReference section */
 		563482F927FF4452002C3392 /* Wallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wallet.swift; sourceTree = "<group>"; };
+		5634E39B280D6AA5009AA3DA /* CurrencyPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyPageViewModel.swift; sourceTree = "<group>"; };
 		566863D7280446F900FDF345 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		566863DE2804569800FDF345 /* CurrencyPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyPageVC.swift; sourceTree = "<group>"; };
 		566863DF2804569800FDF345 /* CurrencyPageVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CurrencyPageVC.xib; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 			children = (
 				566863DE2804569800FDF345 /* CurrencyPageVC.swift */,
 				566863DF2804569800FDF345 /* CurrencyPageVC.xib */,
+				5634E39B280D6AA5009AA3DA /* CurrencyPageViewModel.swift */,
 			);
 			path = CurrencyPageVC;
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 				566863E3280465DA00FDF345 /* String+Double.swift in Sources */,
 				566863E02804569800FDF345 /* CurrencyPageVC.swift in Sources */,
 				566863EE2804967500FDF345 /* WalletEntity+CoreDataClass.swift in Sources */,
+				5634E39C280D6AA5009AA3DA /* CurrencyPageViewModel.swift in Sources */,
 				566863EB28048C2500FDF345 /* Double+String.swift in Sources */,
 				56BC36F727F9F9BB006730A0 /* StashViewModel.swift in Sources */,
 				56926A0E27F6E39100ECF742 /* SceneDelegate.swift in Sources */,

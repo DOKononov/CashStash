@@ -42,7 +42,7 @@ class StashVC: UIViewController {
     
     private func openWalletePage(wallet: Wallet?) {
         let currencyPage = CurrencyPageVC(nibName: "\(CurrencyPageVC.self)", bundle: nil)
-        currencyPage.selectedWallet = wallet
+        currencyPage.viewModel.selectedWallet = wallet
         present(currencyPage, animated: true)
     }
 
@@ -62,7 +62,7 @@ extension StashVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        openWalletePage(wallet: viewModel.walletsList[indexPath.row])
+//        openWalletePage(wallet: viewModel.walletsList[indexPath.row])
     }
     
     //MARK: -delete entity
