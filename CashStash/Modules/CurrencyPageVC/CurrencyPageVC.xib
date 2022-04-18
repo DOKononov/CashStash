@@ -59,7 +59,7 @@
                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fj0-CK-98h">
                                     <rect key="frame" x="109.5" y="0.0" width="272.5" height="34"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <textInputTraits key="textInputTraits"/>
+                                    <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                 </textField>
                             </subviews>
                         </stackView>
@@ -106,12 +106,12 @@
                 <constraint firstItem="QfX-1d-cXN" firstAttribute="top" secondItem="xef-Aa-35L" secondAttribute="bottom" constant="30" id="A5e-eb-J53"/>
                 <constraint firstItem="xef-Aa-35L" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="IFn-fQ-b1t"/>
                 <constraint firstItem="xef-Aa-35L" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="60" id="M0v-zf-ZuU"/>
-                <constraint firstItem="S41-5I-Zcm" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Ymy-0f-e3m"/>
+                <constraint firstItem="S41-5I-Zcm" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="YEM-QY-abQ"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="QfX-1d-cXN" secondAttribute="trailing" constant="16" id="nB0-ZK-JbE"/>
+                <constraint firstItem="S41-5I-Zcm" firstAttribute="top" secondItem="QfX-1d-cXN" secondAttribute="bottom" constant="30" id="sgO-sc-IP3"/>
                 <constraint firstItem="QfX-1d-cXN" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="xop-ed-dwG"/>
-                <constraint firstItem="S41-5I-Zcm" firstAttribute="top" secondItem="QfX-1d-cXN" secondAttribute="bottom" constant="30" id="z7U-p5-aUX"/>
             </constraints>
-            <point key="canvasLocation" x="365" y="-46"/>
+            <point key="canvasLocation" x="363.768115942029" y="-46.205357142857139"/>
         </view>
     </objects>
     <resources>
