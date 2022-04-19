@@ -39,12 +39,6 @@ class StashVC: UIViewController {
             self.totalAmountLabel.text = self.viewModel.totalAmount.myRound().formatNumber() + " USD"
         }
     }
-    
-    private func openWalletePage(wallet: Wallet?) {
-        let currencyPage = CurrencyPageVC(nibName: "\(CurrencyPageVC.self)", bundle: nil)
-        currencyPage.viewModel.selectedWallet = wallet
-        present(currencyPage, animated: true)
-    }
 
 }
 
@@ -63,7 +57,7 @@ extension StashVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-//        openWalletePage(wallet: viewModel.walletsList[indexPath.row])
+        
     }
     
     //MARK: -delete entity
@@ -86,8 +80,8 @@ extension StashVC {
     }
     
     @objc private func addNewWallet() {
-        //TODO: -add new wallet
-        openWalletePage(wallet: nil)
+        let currencyPage = AddNewWalletVC(nibName: "\(AddNewWalletVC.self)", bundle: nil)
+        present(currencyPage, animated: true)
     }
     
     @objc private func refreshTotal() {

@@ -8,10 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		563482FA27FF4452002C3392 /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563482F927FF4452002C3392 /* Wallet.swift */; };
-		5634E39C280D6AA5009AA3DA /* CurrencyPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5634E39B280D6AA5009AA3DA /* CurrencyPageViewModel.swift */; };
+		5634E39C280D6AA5009AA3DA /* AddNewWalletViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5634E39B280D6AA5009AA3DA /* AddNewWalletViewModel.swift */; };
+		5634E39F280F1F04009AA3DA /* WalletHistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5634E39D280F1F04009AA3DA /* WalletHistoryVC.swift */; };
+		5634E3A0280F1F04009AA3DA /* WalletHistoryVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5634E39E280F1F04009AA3DA /* WalletHistoryVC.xib */; };
 		566863D8280446F900FDF345 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566863D7280446F900FDF345 /* CoreDataService.swift */; };
-		566863E02804569800FDF345 /* CurrencyPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566863DE2804569800FDF345 /* CurrencyPageVC.swift */; };
-		566863E12804569800FDF345 /* CurrencyPageVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 566863DF2804569800FDF345 /* CurrencyPageVC.xib */; };
+		566863E02804569800FDF345 /* AddNewWalletVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566863DE2804569800FDF345 /* AddNewWalletVC.swift */; };
+		566863E12804569800FDF345 /* AddNewWalletVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 566863DF2804569800FDF345 /* AddNewWalletVC.xib */; };
 		566863E3280465DA00FDF345 /* String+Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566863E2280465DA00FDF345 /* String+Double.swift */; };
 		566863EB28048C2500FDF345 /* Double+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566863EA28048C2500FDF345 /* Double+String.swift */; };
 		566863EE2804967500FDF345 /* WalletEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566863EC2804967500FDF345 /* WalletEntity+CoreDataClass.swift */; };
@@ -26,6 +28,7 @@
 		56926A1827F6E39300ECF742 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56926A1727F6E39300ECF742 /* Assets.xcassets */; };
 		56926A1B27F6E39300ECF742 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56926A1927F6E39300ECF742 /* LaunchScreen.storyboard */; };
 		56926A2627F70F9600ECF742 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56926A2527F70F9600ECF742 /* Main.storyboard */; };
+		56A22B7A280F21B800E29AEA /* WalletHistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A22B79280F21B800E29AEA /* WalletHistoryViewModel.swift */; };
 		56BC36F327F9EC3D006730A0 /* StashTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BC36F127F9EC3D006730A0 /* StashTableViewCell.swift */; };
 		56BC36F427F9EC3D006730A0 /* StashTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56BC36F227F9EC3D006730A0 /* StashTableViewCell.xib */; };
 		56BC36F727F9F9BB006730A0 /* StashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BC36F627F9F9BB006730A0 /* StashViewModel.swift */; };
@@ -34,10 +37,12 @@
 
 /* Begin PBXFileReference section */
 		563482F927FF4452002C3392 /* Wallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wallet.swift; sourceTree = "<group>"; };
-		5634E39B280D6AA5009AA3DA /* CurrencyPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyPageViewModel.swift; sourceTree = "<group>"; };
+		5634E39B280D6AA5009AA3DA /* AddNewWalletViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewWalletViewModel.swift; sourceTree = "<group>"; };
+		5634E39D280F1F04009AA3DA /* WalletHistoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletHistoryVC.swift; sourceTree = "<group>"; };
+		5634E39E280F1F04009AA3DA /* WalletHistoryVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WalletHistoryVC.xib; sourceTree = "<group>"; };
 		566863D7280446F900FDF345 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
-		566863DE2804569800FDF345 /* CurrencyPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyPageVC.swift; sourceTree = "<group>"; };
-		566863DF2804569800FDF345 /* CurrencyPageVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CurrencyPageVC.xib; sourceTree = "<group>"; };
+		566863DE2804569800FDF345 /* AddNewWalletVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewWalletVC.swift; sourceTree = "<group>"; };
+		566863DF2804569800FDF345 /* AddNewWalletVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddNewWalletVC.xib; sourceTree = "<group>"; };
 		566863E2280465DA00FDF345 /* String+Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Double.swift"; sourceTree = "<group>"; };
 		566863EA28048C2500FDF345 /* Double+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+String.swift"; sourceTree = "<group>"; };
 		566863EC2804967500FDF345 /* WalletEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WalletEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -54,6 +59,7 @@
 		56926A1A27F6E39300ECF742 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		56926A1C27F6E39300ECF742 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		56926A2527F70F9600ECF742 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		56A22B79280F21B800E29AEA /* WalletHistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletHistoryViewModel.swift; sourceTree = "<group>"; };
 		56BC36F127F9EC3D006730A0 /* StashTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StashTableViewCell.swift; sourceTree = "<group>"; };
 		56BC36F227F9EC3D006730A0 /* StashTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StashTableViewCell.xib; sourceTree = "<group>"; };
 		56BC36F627F9F9BB006730A0 /* StashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StashViewModel.swift; sourceTree = "<group>"; };
@@ -74,20 +80,40 @@
 		563482FF27FF4630002C3392 /* CurrencyPageVC */ = {
 			isa = PBXGroup;
 			children = (
-				566863DE2804569800FDF345 /* CurrencyPageVC.swift */,
-				566863DF2804569800FDF345 /* CurrencyPageVC.xib */,
-				5634E39B280D6AA5009AA3DA /* CurrencyPageViewModel.swift */,
+				566863DE2804569800FDF345 /* AddNewWalletVC.swift */,
+				566863DF2804569800FDF345 /* AddNewWalletVC.xib */,
+				5634E39B280D6AA5009AA3DA /* AddNewWalletViewModel.swift */,
 			);
 			path = CurrencyPageVC;
 			sourceTree = "<group>";
 		};
-		566863D628042A2800FDF345 /* StashVC */ = {
+		5634E3A1280F1F4D009AA3DA /* WalletHistoryVC */ = {
+			isa = PBXGroup;
+			children = (
+				5634E39D280F1F04009AA3DA /* WalletHistoryVC.swift */,
+				5634E39E280F1F04009AA3DA /* WalletHistoryVC.xib */,
+				56A22B79280F21B800E29AEA /* WalletHistoryViewModel.swift */,
+			);
+			path = WalletHistoryVC;
+			sourceTree = "<group>";
+		};
+		5634E3A2280F1F5F009AA3DA /* StashVC */ = {
 			isa = PBXGroup;
 			children = (
 				56BC36F527F9EC45006730A0 /* StashTableViewCell */,
 				568E0BB427F7128800A91E4D /* StashVC.swift */,
 				568E0BB527F7128800A91E4D /* StashVC.xib */,
 				56BC36F627F9F9BB006730A0 /* StashViewModel.swift */,
+			);
+			path = StashVC;
+			sourceTree = "<group>";
+		};
+		566863D628042A2800FDF345 /* StashVC */ = {
+			isa = PBXGroup;
+			children = (
+				5634E3A2280F1F5F009AA3DA /* StashVC */,
+				563482FF27FF4630002C3392 /* CurrencyPageVC */,
+				5634E3A1280F1F4D009AA3DA /* WalletHistoryVC */,
 			);
 			path = StashVC;
 			sourceTree = "<group>";
@@ -192,7 +218,6 @@
 			isa = PBXGroup;
 			children = (
 				566863D628042A2800FDF345 /* StashVC */,
-				563482FF27FF4630002C3392 /* CurrencyPageVC */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -264,8 +289,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				566863E12804569800FDF345 /* CurrencyPageVC.xib in Resources */,
+				566863E12804569800FDF345 /* AddNewWalletVC.xib in Resources */,
 				56BC36F427F9EC3D006730A0 /* StashTableViewCell.xib in Resources */,
+				5634E3A0280F1F04009AA3DA /* WalletHistoryVC.xib in Resources */,
 				56926A2627F70F9600ECF742 /* Main.storyboard in Resources */,
 				56926A1B27F6E39300ECF742 /* LaunchScreen.storyboard in Resources */,
 				568E0BB727F7128900A91E4D /* StashVC.xib in Resources */,
@@ -290,12 +316,14 @@
 				568E0BBD27F71F5400A91E4D /* ExcangeModel.swift in Sources */,
 				568E0BB627F7128800A91E4D /* StashVC.swift in Sources */,
 				56BC36F327F9EC3D006730A0 /* StashTableViewCell.swift in Sources */,
+				56A22B7A280F21B800E29AEA /* WalletHistoryViewModel.swift in Sources */,
 				566863E3280465DA00FDF345 /* String+Double.swift in Sources */,
-				566863E02804569800FDF345 /* CurrencyPageVC.swift in Sources */,
+				566863E02804569800FDF345 /* AddNewWalletVC.swift in Sources */,
 				566863EE2804967500FDF345 /* WalletEntity+CoreDataClass.swift in Sources */,
-				5634E39C280D6AA5009AA3DA /* CurrencyPageViewModel.swift in Sources */,
+				5634E39C280D6AA5009AA3DA /* AddNewWalletViewModel.swift in Sources */,
 				566863EB28048C2500FDF345 /* Double+String.swift in Sources */,
 				56BC36F727F9F9BB006730A0 /* StashViewModel.swift in Sources */,
+				5634E39F280F1F04009AA3DA /* WalletHistoryVC.swift in Sources */,
 				56926A0E27F6E39100ECF742 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

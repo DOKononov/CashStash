@@ -1,5 +1,5 @@
 //
-//  CurrencyPageVC.swift
+//  AddNewWalletVC.swift
 //  CashStash
 //
 //  Created by Dmitry Kononov on 11.04.22.
@@ -7,29 +7,20 @@
 
 import UIKit
 
-final class CurrencyPageVC: UIViewController {
+final class AddNewWalletVC: UIViewController {
     
     @IBOutlet private weak var walletNameLabel: UILabel!
     @IBOutlet private weak var walletNameTF: UITextField!
     @IBOutlet private weak var amountTF: UITextField!
     @IBOutlet private weak var currencyTF: UITextField!
     
-    var viewModel: CurrencyPageViewModelProtocol = CurrencyPageViewModel()
+    var viewModel: AddNewWalletViewModelProtocol = AddNewWalletViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupVC()
+        walletNameLabel.text = "New Wallet"
         walletNameTF.becomeFirstResponder()
         callPickerForCurrency()
-    }
-    
-    private func setupVC() {
-        viewModel.selectedWallet == nil ?
-        (walletNameLabel.text = "New Wallet") :
-        (walletNameLabel.text = viewModel.selectedWallet?.name)
-        
-        amountTF.text = viewModel.selectedWallet?.amount.string()
-        currencyTF.text = viewModel.selectedWallet?.currency
     }
     
     @IBAction private func saveDidTapped(_ sender: UIButton) {
@@ -49,7 +40,7 @@ final class CurrencyPageVC: UIViewController {
 }
 
 
-extension CurrencyPageVC: UIPickerViewDataSource, UIPickerViewDelegate {
+extension AddNewWalletVC: UIPickerViewDataSource, UIPickerViewDelegate {
     
     func callPickerForCurrency() {
         let picker = UIPickerView()
