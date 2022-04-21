@@ -7,7 +7,7 @@
 
 import UIKit
 
-class StashVC: UIViewController {
+final class StashVC: UIViewController {
 
     @IBOutlet weak var totalAmountLabel: UILabel!
     private var viewModel: StashViewModelProtocol = StashViewModel()
@@ -56,7 +56,9 @@ extension StashVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        
+        let walleteHistoryVC = WalletHistoryVC(nibName: "\(WalletHistoryVC.self)", bundle: nil)
+        walleteHistoryVC.viewModel.wallet = viewModel.walletsList[indexPath.row]
+        navigationController?.pushViewController(walleteHistoryVC, animated: true)
         
     }
     
@@ -69,10 +71,10 @@ extension StashVC: UITableViewDelegate, UITableViewDataSource {
 // MARK: - BarButton
 extension StashVC {
     private func setupNavigationItem() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus"),
-                                                            style: .done,
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add,
                                                             target: self,
-                                                            action: #selector(addNewWallet))
+                                                            action:  #selector(addNewWallet))
+
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "arrow.clockwise"),
                                                            style: .done,
                                                            target: self,
@@ -80,7 +82,7 @@ extension StashVC {
     }
     
     @objc private func addNewWallet() {
-        let currencyPage = AddNewWalletVC(nibName: "\(AddNewWalletVC.self)", bundle: nil)
+        let currencyPage = AddWalletVC(nibName: "\(AddWalletVC.self)", bundle: nil)
         present(currencyPage, animated: true)
     }
     

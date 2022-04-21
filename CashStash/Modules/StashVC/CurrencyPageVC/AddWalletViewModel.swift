@@ -7,11 +7,11 @@
 
 import Foundation
 
-protocol AddNewWalletViewModelProtocol {
+protocol AddWalletViewModelProtocol {
     func saveDidTapped(walletName: String, amount: String, currency: String)
 }
 
-class AddNewWalletViewModel: AddNewWalletViewModelProtocol {
+final class AddWalletViewModel: AddWalletViewModelProtocol {
     private lazy var networkService = NetworkService()
     
     func saveDidTapped(walletName: String, amount: String, currency: String) {

@@ -2,7 +2,7 @@
 //  WalletEntity+CoreDataProperties.swift
 //  CashStash
 //
-//  Created by Dmitry Kononov on 11.04.22.
+//  Created by Dmitry Kononov on 21.04.22.
 //
 //
 
@@ -20,6 +20,24 @@ extension WalletEntity {
     @NSManaged public var currency: String?
     @NSManaged public var rate: Double
     @NSManaged public var walletName: String?
+    @NSManaged public var transaction: NSSet?
+
+}
+
+// MARK: Generated accessors for transaction
+extension WalletEntity {
+
+    @objc(addTransactionObject:)
+    @NSManaged public func addToTransaction(_ value: TransactionEntity)
+
+    @objc(removeTransactionObject:)
+    @NSManaged public func removeFromTransaction(_ value: TransactionEntity)
+
+    @objc(addTransaction:)
+    @NSManaged public func addToTransaction(_ values: NSSet)
+
+    @objc(removeTransaction:)
+    @NSManaged public func removeFromTransaction(_ values: NSSet)
 
 }
 

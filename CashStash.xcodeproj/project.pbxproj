@@ -8,16 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		563482FA27FF4452002C3392 /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563482F927FF4452002C3392 /* Wallet.swift */; };
-		5634E39C280D6AA5009AA3DA /* AddNewWalletViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5634E39B280D6AA5009AA3DA /* AddNewWalletViewModel.swift */; };
+		5634E39C280D6AA5009AA3DA /* AddWalletViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5634E39B280D6AA5009AA3DA /* AddWalletViewModel.swift */; };
 		5634E39F280F1F04009AA3DA /* WalletHistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5634E39D280F1F04009AA3DA /* WalletHistoryVC.swift */; };
 		5634E3A0280F1F04009AA3DA /* WalletHistoryVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5634E39E280F1F04009AA3DA /* WalletHistoryVC.xib */; };
+		565630182811C4D900B3595E /* WalletEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565630142811C4D900B3595E /* WalletEntity+CoreDataClass.swift */; };
+		565630192811C4D900B3595E /* WalletEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565630152811C4D900B3595E /* WalletEntity+CoreDataProperties.swift */; };
+		5656301A2811C4D900B3595E /* TransactionEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565630162811C4D900B3595E /* TransactionEntity+CoreDataClass.swift */; };
+		5656301B2811C4D900B3595E /* TransactionEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565630172811C4D900B3595E /* TransactionEntity+CoreDataProperties.swift */; };
 		566863D8280446F900FDF345 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566863D7280446F900FDF345 /* CoreDataService.swift */; };
-		566863E02804569800FDF345 /* AddNewWalletVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566863DE2804569800FDF345 /* AddNewWalletVC.swift */; };
-		566863E12804569800FDF345 /* AddNewWalletVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 566863DF2804569800FDF345 /* AddNewWalletVC.xib */; };
+		566863E02804569800FDF345 /* AddWalletVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566863DE2804569800FDF345 /* AddWalletVC.swift */; };
+		566863E12804569800FDF345 /* AddWalletVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 566863DF2804569800FDF345 /* AddWalletVC.xib */; };
 		566863E3280465DA00FDF345 /* String+Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566863E2280465DA00FDF345 /* String+Double.swift */; };
 		566863EB28048C2500FDF345 /* Double+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566863EA28048C2500FDF345 /* Double+String.swift */; };
-		566863EE2804967500FDF345 /* WalletEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566863EC2804967500FDF345 /* WalletEntity+CoreDataClass.swift */; };
-		566863EF2804967500FDF345 /* WalletEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566863ED2804967500FDF345 /* WalletEntity+CoreDataProperties.swift */; };
 		568E0BB627F7128800A91E4D /* StashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568E0BB427F7128800A91E4D /* StashVC.swift */; };
 		568E0BB727F7128900A91E4D /* StashVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 568E0BB527F7128800A91E4D /* StashVC.xib */; };
 		568E0BB927F7196000A91E4D /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568E0BB827F7196000A91E4D /* NetworkService.swift */; };
@@ -29,6 +31,10 @@
 		56926A1B27F6E39300ECF742 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56926A1927F6E39300ECF742 /* LaunchScreen.storyboard */; };
 		56926A2627F70F9600ECF742 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56926A2527F70F9600ECF742 /* Main.storyboard */; };
 		56A22B7A280F21B800E29AEA /* WalletHistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A22B79280F21B800E29AEA /* WalletHistoryViewModel.swift */; };
+		56A22B842811B99E00E29AEA /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A22B832811B99E00E29AEA /* Transaction.swift */; };
+		56A22B932811C0AB00E29AEA /* AddTransactionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A22B912811C0AB00E29AEA /* AddTransactionVC.swift */; };
+		56A22B942811C0AB00E29AEA /* AddTransactionVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56A22B922811C0AB00E29AEA /* AddTransactionVC.xib */; };
+		56A22B972811C0DB00E29AEA /* AddTransactionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A22B962811C0DB00E29AEA /* AddTransactionViewModel.swift */; };
 		56BC36F327F9EC3D006730A0 /* StashTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BC36F127F9EC3D006730A0 /* StashTableViewCell.swift */; };
 		56BC36F427F9EC3D006730A0 /* StashTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56BC36F227F9EC3D006730A0 /* StashTableViewCell.xib */; };
 		56BC36F727F9F9BB006730A0 /* StashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BC36F627F9F9BB006730A0 /* StashViewModel.swift */; };
@@ -37,16 +43,18 @@
 
 /* Begin PBXFileReference section */
 		563482F927FF4452002C3392 /* Wallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wallet.swift; sourceTree = "<group>"; };
-		5634E39B280D6AA5009AA3DA /* AddNewWalletViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewWalletViewModel.swift; sourceTree = "<group>"; };
+		5634E39B280D6AA5009AA3DA /* AddWalletViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWalletViewModel.swift; sourceTree = "<group>"; };
 		5634E39D280F1F04009AA3DA /* WalletHistoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletHistoryVC.swift; sourceTree = "<group>"; };
 		5634E39E280F1F04009AA3DA /* WalletHistoryVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WalletHistoryVC.xib; sourceTree = "<group>"; };
+		565630142811C4D900B3595E /* WalletEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WalletEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		565630152811C4D900B3595E /* WalletEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WalletEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		565630162811C4D900B3595E /* TransactionEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TransactionEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		565630172811C4D900B3595E /* TransactionEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TransactionEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		566863D7280446F900FDF345 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
-		566863DE2804569800FDF345 /* AddNewWalletVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewWalletVC.swift; sourceTree = "<group>"; };
-		566863DF2804569800FDF345 /* AddNewWalletVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddNewWalletVC.xib; sourceTree = "<group>"; };
+		566863DE2804569800FDF345 /* AddWalletVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWalletVC.swift; sourceTree = "<group>"; };
+		566863DF2804569800FDF345 /* AddWalletVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddWalletVC.xib; sourceTree = "<group>"; };
 		566863E2280465DA00FDF345 /* String+Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Double.swift"; sourceTree = "<group>"; };
 		566863EA28048C2500FDF345 /* Double+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+String.swift"; sourceTree = "<group>"; };
-		566863EC2804967500FDF345 /* WalletEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WalletEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
-		566863ED2804967500FDF345 /* WalletEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WalletEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		568E0BB427F7128800A91E4D /* StashVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StashVC.swift; sourceTree = "<group>"; };
 		568E0BB527F7128800A91E4D /* StashVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StashVC.xib; sourceTree = "<group>"; };
 		568E0BB827F7196000A91E4D /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
@@ -60,6 +68,10 @@
 		56926A1C27F6E39300ECF742 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		56926A2527F70F9600ECF742 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		56A22B79280F21B800E29AEA /* WalletHistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletHistoryViewModel.swift; sourceTree = "<group>"; };
+		56A22B832811B99E00E29AEA /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		56A22B912811C0AB00E29AEA /* AddTransactionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionVC.swift; sourceTree = "<group>"; };
+		56A22B922811C0AB00E29AEA /* AddTransactionVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddTransactionVC.xib; sourceTree = "<group>"; };
+		56A22B962811C0DB00E29AEA /* AddTransactionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionViewModel.swift; sourceTree = "<group>"; };
 		56BC36F127F9EC3D006730A0 /* StashTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StashTableViewCell.swift; sourceTree = "<group>"; };
 		56BC36F227F9EC3D006730A0 /* StashTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StashTableViewCell.xib; sourceTree = "<group>"; };
 		56BC36F627F9F9BB006730A0 /* StashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StashViewModel.swift; sourceTree = "<group>"; };
@@ -80,9 +92,9 @@
 		563482FF27FF4630002C3392 /* CurrencyPageVC */ = {
 			isa = PBXGroup;
 			children = (
-				566863DE2804569800FDF345 /* AddNewWalletVC.swift */,
-				566863DF2804569800FDF345 /* AddNewWalletVC.xib */,
-				5634E39B280D6AA5009AA3DA /* AddNewWalletViewModel.swift */,
+				566863DE2804569800FDF345 /* AddWalletVC.swift */,
+				566863DF2804569800FDF345 /* AddWalletVC.xib */,
+				5634E39B280D6AA5009AA3DA /* AddWalletViewModel.swift */,
 			);
 			path = CurrencyPageVC;
 			sourceTree = "<group>";
@@ -114,6 +126,7 @@
 				5634E3A2280F1F5F009AA3DA /* StashVC */,
 				563482FF27FF4630002C3392 /* CurrencyPageVC */,
 				5634E3A1280F1F4D009AA3DA /* WalletHistoryVC */,
+				56A22B952811C0B300E29AEA /* AddTransactionVC */,
 			);
 			path = StashVC;
 			sourceTree = "<group>";
@@ -140,8 +153,10 @@
 		566863E52804683A00FDF345 /* Modeles */ = {
 			isa = PBXGroup;
 			children = (
-				566863EC2804967500FDF345 /* WalletEntity+CoreDataClass.swift */,
-				566863ED2804967500FDF345 /* WalletEntity+CoreDataProperties.swift */,
+				565630142811C4D900B3595E /* WalletEntity+CoreDataClass.swift */,
+				565630152811C4D900B3595E /* WalletEntity+CoreDataProperties.swift */,
+				565630162811C4D900B3595E /* TransactionEntity+CoreDataClass.swift */,
+				565630172811C4D900B3595E /* TransactionEntity+CoreDataProperties.swift */,
 			);
 			path = Modeles;
 			sourceTree = "<group>";
@@ -161,6 +176,7 @@
 				568E0BBC27F71F5400A91E4D /* ExcangeModel.swift */,
 				56BC36FC27FA080E006730A0 /* CurrencyList.swift */,
 				563482F927FF4452002C3392 /* Wallet.swift */,
+				56A22B832811B99E00E29AEA /* Transaction.swift */,
 			);
 			path = Modeles;
 			sourceTree = "<group>";
@@ -220,6 +236,16 @@
 				566863D628042A2800FDF345 /* StashVC */,
 			);
 			path = Modules;
+			sourceTree = "<group>";
+		};
+		56A22B952811C0B300E29AEA /* AddTransactionVC */ = {
+			isa = PBXGroup;
+			children = (
+				56A22B912811C0AB00E29AEA /* AddTransactionVC.swift */,
+				56A22B922811C0AB00E29AEA /* AddTransactionVC.xib */,
+				56A22B962811C0DB00E29AEA /* AddTransactionViewModel.swift */,
+			);
+			path = AddTransactionVC;
 			sourceTree = "<group>";
 		};
 		56BC36F527F9EC45006730A0 /* StashTableViewCell */ = {
@@ -289,11 +315,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				566863E12804569800FDF345 /* AddNewWalletVC.xib in Resources */,
+				566863E12804569800FDF345 /* AddWalletVC.xib in Resources */,
 				56BC36F427F9EC3D006730A0 /* StashTableViewCell.xib in Resources */,
 				5634E3A0280F1F04009AA3DA /* WalletHistoryVC.xib in Resources */,
 				56926A2627F70F9600ECF742 /* Main.storyboard in Resources */,
 				56926A1B27F6E39300ECF742 /* LaunchScreen.storyboard in Resources */,
+				56A22B942811C0AB00E29AEA /* AddTransactionVC.xib in Resources */,
 				568E0BB727F7128900A91E4D /* StashVC.xib in Resources */,
 				56926A1827F6E39300ECF742 /* Assets.xcassets in Resources */,
 			);
@@ -306,11 +333,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56A22B842811B99E00E29AEA /* Transaction.swift in Sources */,
 				563482FA27FF4452002C3392 /* Wallet.swift in Sources */,
-				566863EF2804967500FDF345 /* WalletEntity+CoreDataProperties.swift in Sources */,
+				5656301A2811C4D900B3595E /* TransactionEntity+CoreDataClass.swift in Sources */,
+				5656301B2811C4D900B3595E /* TransactionEntity+CoreDataProperties.swift in Sources */,
 				56BC36FD27FA080E006730A0 /* CurrencyList.swift in Sources */,
 				568E0BB927F7196000A91E4D /* NetworkService.swift in Sources */,
 				56926A1627F6E39100ECF742 /* CashStash.xcdatamodeld in Sources */,
+				565630192811C4D900B3595E /* WalletEntity+CoreDataProperties.swift in Sources */,
+				565630182811C4D900B3595E /* WalletEntity+CoreDataClass.swift in Sources */,
+				56A22B932811C0AB00E29AEA /* AddTransactionVC.swift in Sources */,
 				566863D8280446F900FDF345 /* CoreDataService.swift in Sources */,
 				56926A0C27F6E39100ECF742 /* AppDelegate.swift in Sources */,
 				568E0BBD27F71F5400A91E4D /* ExcangeModel.swift in Sources */,
@@ -318,10 +350,10 @@
 				56BC36F327F9EC3D006730A0 /* StashTableViewCell.swift in Sources */,
 				56A22B7A280F21B800E29AEA /* WalletHistoryViewModel.swift in Sources */,
 				566863E3280465DA00FDF345 /* String+Double.swift in Sources */,
-				566863E02804569800FDF345 /* AddNewWalletVC.swift in Sources */,
-				566863EE2804967500FDF345 /* WalletEntity+CoreDataClass.swift in Sources */,
-				5634E39C280D6AA5009AA3DA /* AddNewWalletViewModel.swift in Sources */,
+				566863E02804569800FDF345 /* AddWalletVC.swift in Sources */,
+				5634E39C280D6AA5009AA3DA /* AddWalletViewModel.swift in Sources */,
 				566863EB28048C2500FDF345 /* Double+String.swift in Sources */,
+				56A22B972811C0DB00E29AEA /* AddTransactionViewModel.swift in Sources */,
 				56BC36F727F9F9BB006730A0 /* StashViewModel.swift in Sources */,
 				5634E39F280F1F04009AA3DA /* WalletHistoryVC.swift in Sources */,
 				56926A0E27F6E39100ECF742 /* SceneDelegate.swift in Sources */,

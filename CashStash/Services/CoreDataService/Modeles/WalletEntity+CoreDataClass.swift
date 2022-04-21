@@ -2,7 +2,7 @@
 //  WalletEntity+CoreDataClass.swift
 //  CashStash
 //
-//  Created by Dmitry Kononov on 11.04.22.
+//  Created by Dmitry Kononov on 21.04.22.
 //
 //
 

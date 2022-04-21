@@ -6,3 +6,14 @@
 //
 
 import Foundation
+
+protocol WalletHistoryProtocol {
+    var wallet: Wallet? { get set }
+    var transactions: [Transaction] { get set }
+}
+
+final class WalletHistoryViewModel: WalletHistoryProtocol {
+    var transactions: [Transaction] = []
+    var wallet: Wallet?
+    
+}

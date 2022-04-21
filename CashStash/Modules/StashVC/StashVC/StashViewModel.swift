@@ -19,7 +19,7 @@ protocol StashViewModelProtocol {
 }
 
 
-class StashViewModel: NSObject, StashViewModelProtocol, NSFetchedResultsControllerDelegate {
+final class StashViewModel: NSObject, StashViewModelProtocol, NSFetchedResultsControllerDelegate {
     
     var walletsEntity: [WalletEntity] = [] {
         didSet {

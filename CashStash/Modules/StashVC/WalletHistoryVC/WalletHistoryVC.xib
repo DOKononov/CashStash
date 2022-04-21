@@ -45,9 +45,15 @@
                     </subviews>
                 </stackView>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="iaU-ox-USh">
-                    <rect key="frame" x="0.0" y="222.5" width="414" height="639.5"/>
+                    <rect key="frame" x="0.0" y="259" width="414" height="603"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="transactions:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gxL-PC-XIR">
+                    <rect key="frame" x="16" y="222.5" width="97.5" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -55,9 +61,11 @@
                 <constraint firstItem="tA9-oj-KzN" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="0w2-tP-k4f"/>
                 <constraint firstItem="iaU-ox-USh" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="7Ye-ZD-KIa"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="iaU-ox-USh" secondAttribute="trailing" id="EQN-qf-f7t"/>
-                <constraint firstItem="iaU-ox-USh" firstAttribute="top" secondItem="tA9-oj-KzN" secondAttribute="bottom" constant="30" id="i9q-hr-tfJ"/>
+                <constraint firstItem="iaU-ox-USh" firstAttribute="top" secondItem="gxL-PC-XIR" secondAttribute="bottom" constant="16" id="FzH-ih-NVr"/>
+                <constraint firstItem="gxL-PC-XIR" firstAttribute="top" secondItem="tA9-oj-KzN" secondAttribute="bottom" constant="30" id="KOe-yU-N7K"/>
                 <constraint firstItem="tA9-oj-KzN" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="60" id="vMG-M7-xHk"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="iaU-ox-USh" secondAttribute="bottom" id="yZR-1n-bh7"/>
+                <constraint firstItem="gxL-PC-XIR" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="zE8-b3-kzb"/>
             </constraints>
             <point key="canvasLocation" x="131.8840579710145" y="49.553571428571423"/>
         </view>
