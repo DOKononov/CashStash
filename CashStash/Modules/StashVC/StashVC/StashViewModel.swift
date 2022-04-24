@@ -10,7 +10,7 @@ import CoreData
 import UIKit
 
 protocol StashViewModelProtocol {
-    var walletsList: [Wallet] { get set }
+    var walletsEntity: [WalletEntity] { get set }
     var didChangeContent: (() -> Void)? { get set }
     var totalAmount: Double { get }
     func updateTotalAmount()
@@ -23,17 +23,11 @@ final class StashViewModel: NSObject, StashViewModelProtocol, NSFetchedResultsCo
     
     var walletsEntity: [WalletEntity] = [] {
         didSet {
-            convertWalletsEntitiesToModel()
-        }
-    }
-    lazy var fetchResultContoller = NSFetchedResultsController<WalletEntity>()
-    
-    var walletsList: [Wallet] = [] {
-        didSet {
             calcTotalAmount()
             didChangeContent?()
         }
     }
+    lazy var fetchResultContoller = NSFetchedResultsController<WalletEntity>()
     
     var totalAmount: Double = 0
     var didChangeContent: (() -> Void)?
@@ -66,20 +60,13 @@ final class StashViewModel: NSObject, StashViewModelProtocol, NSFetchedResultsCo
         loadWalletsEntities()
     }
     
-    private func convertWalletsEntitiesToModel() {
-        var tempArray: [Wallet] = []
-        walletsEntity.forEach { entity in
-        let wallet = Wallet(entity: entity)
-            tempArray.append(wallet)
-        }
-        walletsList = tempArray
-    }
     
     func deleteWallet(indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let del = UIContextualAction(style: .destructive, title: "Delete") { _, _, _ in
-            let modelToDelete = self.walletsList[indexPath.row]
+            let modelToDelete = self.walletsEntity[indexPath.row]
             let request = WalletEntity.fetchRequest()
-            request.predicate = NSPredicate(format: "walletName = %@", modelToDelete.name)
+            guard let name = modelToDelete.walletName else { return }
+            request.predicate = NSPredicate(format: "walletName = %@", name)
             if let result = try? CoreDataService.shared.managedObjectContext.fetch(request),
                let entityToDelete = result.first {
                 CoreDataService.shared.managedObjectContext.delete(entityToDelete)
@@ -91,7 +78,7 @@ final class StashViewModel: NSObject, StashViewModelProtocol, NSFetchedResultsCo
     
     private func calcTotalAmount() {
         var tempSumm = 0.0
-        walletsList.forEach { tempSumm += ($0.amount / $0.rate).myRound() }
+        walletsEntity.forEach { tempSumm += ($0.amount / $0.rate).myRound() }
         totalAmount = tempSumm
     }
     

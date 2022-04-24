@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class StashTableViewCell: UITableViewCell {
     
@@ -15,11 +16,13 @@ class StashTableViewCell: UITableViewCell {
     @IBOutlet weak var currencyLabel: UILabel!
     @IBOutlet weak var amountUSDLabel: UILabel!
     
-    func setup(wallet: Wallet) {
+    func setup(wallet: WalletEntity) {
+        let amountUSD = (wallet.amount / wallet.rate).myRound()
+        
         rateLabel.text = "rate: " + wallet.rate.string()
-        walletNameLabel.text = wallet.name
+        walletNameLabel.text = wallet.walletName
         amountLabel.text = wallet.amount.formatNumber()
         currencyLabel.text = wallet.currency
-        amountUSDLabel.text = wallet.amountUSD.formatNumber()
+        amountUSDLabel.text = amountUSD.formatNumber()
     }
 }

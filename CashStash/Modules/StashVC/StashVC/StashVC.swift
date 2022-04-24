@@ -45,19 +45,19 @@ final class StashVC: UIViewController {
 
 extension StashVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.walletsList.count
+        return viewModel.walletsEntity.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "\(StashTableViewCell.self)", for: indexPath) as? StashTableViewCell
-        cell?.setup(wallet: viewModel.walletsList[indexPath.row])
+        cell?.setup(wallet: viewModel.walletsEntity[indexPath.row])
         return cell ?? UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let walleteHistoryVC = WalletHistoryVC(nibName: "\(WalletHistoryVC.self)", bundle: nil)
-        walleteHistoryVC.viewModel.wallet = viewModel.walletsList[indexPath.row]
+        walleteHistoryVC.viewModel.wallet = viewModel.walletsEntity[indexPath.row]
         navigationController?.pushViewController(walleteHistoryVC, animated: true)
         
     }

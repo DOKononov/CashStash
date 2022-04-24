@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		563482FA27FF4452002C3392 /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563482F927FF4452002C3392 /* Wallet.swift */; };
 		5634E39C280D6AA5009AA3DA /* AddWalletViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5634E39B280D6AA5009AA3DA /* AddWalletViewModel.swift */; };
 		5634E39F280F1F04009AA3DA /* WalletHistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5634E39D280F1F04009AA3DA /* WalletHistoryVC.swift */; };
 		5634E3A0280F1F04009AA3DA /* WalletHistoryVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5634E39E280F1F04009AA3DA /* WalletHistoryVC.xib */; };
@@ -15,6 +14,8 @@
 		565630192811C4D900B3595E /* WalletEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565630152811C4D900B3595E /* WalletEntity+CoreDataProperties.swift */; };
 		5656301A2811C4D900B3595E /* TransactionEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565630162811C4D900B3595E /* TransactionEntity+CoreDataClass.swift */; };
 		5656301B2811C4D900B3595E /* TransactionEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565630172811C4D900B3595E /* TransactionEntity+CoreDataProperties.swift */; };
+		5656301E2814201B00B3595E /* TransactionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5656301C2814201B00B3595E /* TransactionCell.swift */; };
+		5656301F2814201B00B3595E /* TransactionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5656301D2814201B00B3595E /* TransactionCell.xib */; };
 		566863D8280446F900FDF345 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566863D7280446F900FDF345 /* CoreDataService.swift */; };
 		566863E02804569800FDF345 /* AddWalletVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566863DE2804569800FDF345 /* AddWalletVC.swift */; };
 		566863E12804569800FDF345 /* AddWalletVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 566863DF2804569800FDF345 /* AddWalletVC.xib */; };
@@ -42,7 +43,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		563482F927FF4452002C3392 /* Wallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wallet.swift; sourceTree = "<group>"; };
 		5634E39B280D6AA5009AA3DA /* AddWalletViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWalletViewModel.swift; sourceTree = "<group>"; };
 		5634E39D280F1F04009AA3DA /* WalletHistoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletHistoryVC.swift; sourceTree = "<group>"; };
 		5634E39E280F1F04009AA3DA /* WalletHistoryVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WalletHistoryVC.xib; sourceTree = "<group>"; };
@@ -50,6 +50,8 @@
 		565630152811C4D900B3595E /* WalletEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WalletEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		565630162811C4D900B3595E /* TransactionEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TransactionEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		565630172811C4D900B3595E /* TransactionEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TransactionEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		5656301C2814201B00B3595E /* TransactionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCell.swift; sourceTree = "<group>"; };
+		5656301D2814201B00B3595E /* TransactionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionCell.xib; sourceTree = "<group>"; };
 		566863D7280446F900FDF345 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		566863DE2804569800FDF345 /* AddWalletVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWalletVC.swift; sourceTree = "<group>"; };
 		566863DF2804569800FDF345 /* AddWalletVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddWalletVC.xib; sourceTree = "<group>"; };
@@ -89,19 +91,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		563482FF27FF4630002C3392 /* CurrencyPageVC */ = {
+		563482FF27FF4630002C3392 /* AddWalletVC */ = {
 			isa = PBXGroup;
 			children = (
 				566863DE2804569800FDF345 /* AddWalletVC.swift */,
 				566863DF2804569800FDF345 /* AddWalletVC.xib */,
 				5634E39B280D6AA5009AA3DA /* AddWalletViewModel.swift */,
 			);
-			path = CurrencyPageVC;
+			path = AddWalletVC;
 			sourceTree = "<group>";
 		};
 		5634E3A1280F1F4D009AA3DA /* WalletHistoryVC */ = {
 			isa = PBXGroup;
 			children = (
+				565630202814202600B3595E /* TransactionCell */,
 				5634E39D280F1F04009AA3DA /* WalletHistoryVC.swift */,
 				5634E39E280F1F04009AA3DA /* WalletHistoryVC.xib */,
 				56A22B79280F21B800E29AEA /* WalletHistoryViewModel.swift */,
@@ -120,11 +123,20 @@
 			path = StashVC;
 			sourceTree = "<group>";
 		};
+		565630202814202600B3595E /* TransactionCell */ = {
+			isa = PBXGroup;
+			children = (
+				5656301C2814201B00B3595E /* TransactionCell.swift */,
+				5656301D2814201B00B3595E /* TransactionCell.xib */,
+			);
+			path = TransactionCell;
+			sourceTree = "<group>";
+		};
 		566863D628042A2800FDF345 /* StashVC */ = {
 			isa = PBXGroup;
 			children = (
 				5634E3A2280F1F5F009AA3DA /* StashVC */,
-				563482FF27FF4630002C3392 /* CurrencyPageVC */,
+				563482FF27FF4630002C3392 /* AddWalletVC */,
 				5634E3A1280F1F4D009AA3DA /* WalletHistoryVC */,
 				56A22B952811C0B300E29AEA /* AddTransactionVC */,
 			);
@@ -175,7 +187,6 @@
 			children = (
 				568E0BBC27F71F5400A91E4D /* ExcangeModel.swift */,
 				56BC36FC27FA080E006730A0 /* CurrencyList.swift */,
-				563482F927FF4452002C3392 /* Wallet.swift */,
 				56A22B832811B99E00E29AEA /* Transaction.swift */,
 			);
 			path = Modeles;
@@ -317,6 +328,7 @@
 			files = (
 				566863E12804569800FDF345 /* AddWalletVC.xib in Resources */,
 				56BC36F427F9EC3D006730A0 /* StashTableViewCell.xib in Resources */,
+				5656301F2814201B00B3595E /* TransactionCell.xib in Resources */,
 				5634E3A0280F1F04009AA3DA /* WalletHistoryVC.xib in Resources */,
 				56926A2627F70F9600ECF742 /* Main.storyboard in Resources */,
 				56926A1B27F6E39300ECF742 /* LaunchScreen.storyboard in Resources */,
@@ -334,7 +346,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				56A22B842811B99E00E29AEA /* Transaction.swift in Sources */,
-				563482FA27FF4452002C3392 /* Wallet.swift in Sources */,
 				5656301A2811C4D900B3595E /* TransactionEntity+CoreDataClass.swift in Sources */,
 				5656301B2811C4D900B3595E /* TransactionEntity+CoreDataProperties.swift in Sources */,
 				56BC36FD27FA080E006730A0 /* CurrencyList.swift in Sources */,
@@ -348,6 +359,7 @@
 				568E0BBD27F71F5400A91E4D /* ExcangeModel.swift in Sources */,
 				568E0BB627F7128800A91E4D /* StashVC.swift in Sources */,
 				56BC36F327F9EC3D006730A0 /* StashTableViewCell.swift in Sources */,
+				5656301E2814201B00B3595E /* TransactionCell.swift in Sources */,
 				56A22B7A280F21B800E29AEA /* WalletHistoryViewModel.swift in Sources */,
 				566863E3280465DA00FDF345 /* String+Double.swift in Sources */,
 				566863E02804569800FDF345 /* AddWalletVC.swift in Sources */,
