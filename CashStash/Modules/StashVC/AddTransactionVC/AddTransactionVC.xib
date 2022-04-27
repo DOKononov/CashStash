@@ -14,6 +14,7 @@
                 <outlet property="dateTF" destination="79y-WK-WyO" id="JZ6-8w-MfL"/>
                 <outlet property="descriptionTF" destination="wWY-cd-2t7" id="SAi-Ly-TG9"/>
                 <outlet property="tTypeTF" destination="u2i-0h-IvQ" id="8Id-EN-hyL"/>
+                <outlet property="titleLabel" destination="Eer-iQ-w6y" id="VAG-cW-Blv"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

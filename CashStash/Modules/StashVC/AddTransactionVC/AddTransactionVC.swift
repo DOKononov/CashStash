@@ -8,7 +8,6 @@
 import UIKit
 
 
-
 enum TransactionType: String, CaseIterable {
     case income = "Income"
     case expance = "Expance"
@@ -21,34 +20,39 @@ enum TransactionType: String, CaseIterable {
     }
 }
 
-class AddTransactionVC: UIViewController {
+
+final class AddTransactionVC: UIViewController {
     
-    
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var dateTF: UITextField!
     @IBOutlet weak var descriptionTF: UITextField!
-    @IBOutlet weak var amountTF: UITextField!
+    @IBOutlet weak var amountTF: UITextField! {  didSet { amountTF.delegate = self } }
     @IBOutlet weak var tTypeTF: UITextField!
+    
+    var date: Date?
+    var income: Bool?
     
     var viewModel: AddTransactionProtocol = AddTransactionViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTypePicker()
         setupDatePicker()
+        setupVC()
     }
     
-    @IBAction func saveDidTapped(_ sender: UIButton) {
-        
+    @IBAction private func saveDidTapped(_ sender: UIButton) {
         guard dateTF.hasText, descriptionTF.hasText, amountTF.hasText, tTypeTF.hasText else {return}
+        guard let amount = amountTF.text, let description = descriptionTF.text, let date = date, let income = income else {return}
         
-        guard let amount = amountTF.text,
-              let description = descriptionTF.text else {return}
+        let components = TransactionComponents(income: income,
+                                               amount: amount.double(),
+                                               date: date,
+                                               description: description)
         
-        viewModel.transactionComponents.amount = amount.double()
-        viewModel.transactionComponents.tDescription = description
-        viewModel.saveDidTaped()
+        viewModel.saveDidTaped(components: components)
         
-        viewModel.delegate?.updateWalleteAmount()
-        self.dismiss(animated: true)
+        viewModel.delegate?.updateWalletInfo()
+        closeVC()
     }
     
     private func setupDatePicker() {
@@ -63,7 +67,7 @@ class AddTransactionVC: UIViewController {
         let dateFormater = DateFormatter()
         dateFormater.dateFormat = "dd.MM.yyyy"
         dateTF.text = dateFormater.string(from: sender.date)
-        viewModel.transactionComponents.date = sender.date
+        date = sender.date
     }
     
     private func setupTypePicker() {
@@ -76,11 +80,32 @@ class AddTransactionVC: UIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
     }
+    
+    func setupVC() {
+        guard let transaction = viewModel.myTransaction  else {return}
+        titleLabel.text = ""
+        let dateFormater = DateFormatter()
+        dateFormater.dateFormat = "dd.MM.yyyy"
+        dateTF.text = dateFormater.string(from: transaction.date ?? Date() )
+        
+        descriptionTF.text = transaction.tDescription
+        amountTF.text = transaction.amount.formatNumber()
+        transaction.income ?
+        (tTypeTF.text = TransactionType.income.rawValue) :
+        (tTypeTF.text = TransactionType.expance.rawValue)
+    }
+    
+    private func closeVC() {
+        if let navigationController = self.navigationController {
+            navigationController.popViewController(animated: true)
+        } else {
+            self.dismiss(animated: true)
+        }
+    }
 }
 
 
 extension AddTransactionVC: UIPickerViewDelegate, UIPickerViewDataSource {
-    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -93,11 +118,23 @@ extension AddTransactionVC: UIPickerViewDelegate, UIPickerViewDataSource {
         return TransactionType.allCases[row].rawValue
     }
     
-    
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        
         tTypeTF.text = TransactionType.allCases[row].rawValue
-        viewModel.transactionComponents.income = TransactionType.allCases[row].bool
+        income = TransactionType.allCases[row].bool
         view.endEditing(true)
     }
+}
+
+
+extension AddTransactionVC: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if textField == amountTF, string == "," {
+            if let text = textField.text {
+                textField.text = text + "."
+                return false
+            }
+        }
+        return true
+    }
+    
 }

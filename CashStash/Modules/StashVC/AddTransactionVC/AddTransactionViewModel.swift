@@ -7,38 +7,52 @@
 
 import Foundation
 
-protocol WalletHistoryDelegate {
-    func updateWalleteAmount()
-}
+
 
 protocol AddTransactionProtocol {
     var delegate: WalletHistoryDelegate? { get set }
     var wallet: WalletEntity? { get set }
-    var transactionComponents: Transaction { get set }
-    func saveDidTaped()
+    var myTransaction: TransactionEntity? { get set }
+    func saveDidTaped(components: TransactionComponents)
 }
 
 final class AddTransactionViewModel: AddTransactionProtocol {
-    
     var delegate: WalletHistoryDelegate?
     var wallet: WalletEntity?
-    var transactionComponents = Transaction()
-    
-    func saveDidTaped() {
-        let newTransaction = TransactionEntity(context: CoreDataService.shared.managedObjectContext)
+    var myTransaction: TransactionEntity?
 
-        newTransaction.income = transactionComponents.income
-        newTransaction.amount = transactionComponents.amount
-        newTransaction.wallet = wallet
-        newTransaction.date = transactionComponents.date
-        newTransaction.tDescription = transactionComponents.tDescription
-        
-        if  newTransaction.income {
-            wallet?.amount += newTransaction.amount
+    
+    //TODO: if exist - edite else save
+    func saveDidTaped(components: TransactionComponents) {
+        guard let wallet = wallet else { return }
+
+        //edite transaction
+        if CoreDataService.shared.ifTransactionExist(components: components, wallet: wallet) {
+            
+            //create new transaction
         } else {
-            wallet?.amount -= newTransaction.amount
+            let newTransaction = createTransaction(components)
+            self.updateWalletAmount(transaction: newTransaction)
+            CoreDataService.shared.saveContext()
         }
-        
-        CoreDataService.shared.saveContext()
     }
+    
+    private func updateWalletAmount(transaction: TransactionEntity) {
+        if  transaction.income {
+            wallet?.amount += transaction.amount
+        } else {
+            wallet?.amount -= transaction.amount
+        }
+    }
+    
+    private func createTransaction(_ components: TransactionComponents) -> TransactionEntity {
+        let newTransaction = TransactionEntity(context: CoreDataService.shared.managedObjectContext)
+        newTransaction.income = components.income
+        newTransaction.amount = components.amount
+        newTransaction.date = components.date
+        newTransaction.tDescription = components.description
+        newTransaction.wallet = wallet
+        return newTransaction
+    }
+    
 }

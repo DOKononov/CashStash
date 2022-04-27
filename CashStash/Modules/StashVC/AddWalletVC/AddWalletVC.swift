@@ -11,7 +11,7 @@ final class AddWalletVC: UIViewController {
     
     @IBOutlet private weak var walletNameLabel: UILabel!
     @IBOutlet private weak var walletNameTF: UITextField!
-    @IBOutlet private weak var amountTF: UITextField!
+    @IBOutlet private weak var amountTF: UITextField! { didSet { amountTF.delegate = self } }
     @IBOutlet private weak var currencyTF: UITextField!
     
     var viewModel: AddWalletViewModelProtocol = AddWalletViewModel()
@@ -66,5 +66,18 @@ extension AddWalletVC: UIPickerViewDataSource, UIPickerViewDelegate {
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         currencyTF.text = CurrencyList.allCases[row].rawValue
+    }
+}
+
+
+extension AddWalletVC: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if textField == amountTF, string == "," {
+            if let text = textField.text {
+                textField.text = text + "."
+                return false
+            }
+        }
+        return true
     }
 }

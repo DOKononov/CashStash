@@ -40,6 +40,19 @@ final class CoreDataService {
             }
         }
     }
+    
+    func ifTransactionExist(components: TransactionComponents, wallet: WalletEntity) -> Bool {
+        let request = TransactionEntity.fetchRequest()
+        request.predicate = NSPredicate(format: "amount == %f", components.amount)
+        request.predicate = NSPredicate(format: "date == %@", components.date as NSDate)
+        request.predicate = NSPredicate(format: "income == %d", components.income)
+        request.predicate = NSPredicate(format: "tDescription == %@", components.description)
+        if let result = try? CoreDataService.shared.managedObjectContext.fetch(request) {
+            return result.count > 0
+        } else {
+            return false
+        }
+    }
 }
 
 

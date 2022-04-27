@@ -36,6 +36,7 @@
 		56A22B932811C0AB00E29AEA /* AddTransactionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A22B912811C0AB00E29AEA /* AddTransactionVC.swift */; };
 		56A22B942811C0AB00E29AEA /* AddTransactionVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56A22B922811C0AB00E29AEA /* AddTransactionVC.xib */; };
 		56A22B972811C0DB00E29AEA /* AddTransactionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A22B962811C0DB00E29AEA /* AddTransactionViewModel.swift */; };
+		56B68D5728197E6200217C6E /* TransactionComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B68D5628197E6200217C6E /* TransactionComponents.swift */; };
 		56BC36F327F9EC3D006730A0 /* StashTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BC36F127F9EC3D006730A0 /* StashTableViewCell.swift */; };
 		56BC36F427F9EC3D006730A0 /* StashTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56BC36F227F9EC3D006730A0 /* StashTableViewCell.xib */; };
 		56BC36F727F9F9BB006730A0 /* StashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BC36F627F9F9BB006730A0 /* StashViewModel.swift */; };
@@ -74,6 +75,7 @@
 		56A22B912811C0AB00E29AEA /* AddTransactionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionVC.swift; sourceTree = "<group>"; };
 		56A22B922811C0AB00E29AEA /* AddTransactionVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddTransactionVC.xib; sourceTree = "<group>"; };
 		56A22B962811C0DB00E29AEA /* AddTransactionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionViewModel.swift; sourceTree = "<group>"; };
+		56B68D5628197E6200217C6E /* TransactionComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionComponents.swift; sourceTree = "<group>"; };
 		56BC36F127F9EC3D006730A0 /* StashTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StashTableViewCell.swift; sourceTree = "<group>"; };
 		56BC36F227F9EC3D006730A0 /* StashTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StashTableViewCell.xib; sourceTree = "<group>"; };
 		56BC36F627F9F9BB006730A0 /* StashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StashViewModel.swift; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 				568E0BBC27F71F5400A91E4D /* ExcangeModel.swift */,
 				56BC36FC27FA080E006730A0 /* CurrencyList.swift */,
 				56A22B832811B99E00E29AEA /* Transaction.swift */,
+				56B68D5628197E6200217C6E /* TransactionComponents.swift */,
 			);
 			path = Modeles;
 			sourceTree = "<group>";
@@ -353,6 +356,7 @@
 				56926A1627F6E39100ECF742 /* CashStash.xcdatamodeld in Sources */,
 				565630192811C4D900B3595E /* WalletEntity+CoreDataProperties.swift in Sources */,
 				565630182811C4D900B3595E /* WalletEntity+CoreDataClass.swift in Sources */,
+				56B68D5728197E6200217C6E /* TransactionComponents.swift in Sources */,
 				56A22B932811C0AB00E29AEA /* AddTransactionVC.swift in Sources */,
 				566863D8280446F900FDF345 /* CoreDataService.swift in Sources */,
 				56926A0C27F6E39100ECF742 /* AppDelegate.swift in Sources */,

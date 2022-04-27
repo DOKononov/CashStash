@@ -12,7 +12,8 @@ protocol WalletHistoryProtocol {
     var wallet: WalletEntity? { get set }
     var transactions: [TransactionEntity] { get set }
     var contentDidChanged : (() -> Void)?  { get set }
-    func loadTransactions() 
+    func loadTransactions()
+    func deleteTransaction(indexPath: IndexPath, complition: () -> Void)
 }
 
 final class WalletHistoryViewModel: NSObject, WalletHistoryProtocol, NSFetchedResultsControllerDelegate {
@@ -29,7 +30,7 @@ final class WalletHistoryViewModel: NSObject, WalletHistoryProtocol, NSFetchedRe
    
     private func setupFetchResultController() {
         let request = TransactionEntity.fetchRequest()
-        let sortDescriptor = NSSortDescriptor(key: "date", ascending: true)
+        let sortDescriptor = NSSortDescriptor(key: "date", ascending: false)
         request.sortDescriptors = [sortDescriptor]
         guard let wallet = wallet else { return }
         let predicate = NSPredicate(format: "wallet == %@", wallet)
@@ -39,14 +40,12 @@ final class WalletHistoryViewModel: NSObject, WalletHistoryProtocol, NSFetchedRe
                                                            managedObjectContext: CoreDataService.shared.managedObjectContext,
                                                            sectionNameKeyPath: nil,
                                                            cacheName: nil)
-        
         fetchResultController.delegate = self
     }
     
     func loadTransactions() {
         setupFetchResultController()
         try? fetchResultController.performFetch()
-        
         if let result = fetchResultController.fetchedObjects {
             transactions = result
         }
@@ -54,6 +53,14 @@ final class WalletHistoryViewModel: NSObject, WalletHistoryProtocol, NSFetchedRe
     
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         loadTransactions()
+    }
+    
+    func deleteTransaction(indexPath: IndexPath, complition: () -> Void) {
+        let transactionToDel = transactions[indexPath.row]
+        wallet?.calc(transaction: transactionToDel)
+        complition()
+        CoreDataService.shared.managedObjectContext.delete(transactionToDel)
+        CoreDataService.shared.saveContext()
     }
     
 }
