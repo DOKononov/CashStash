@@ -13,6 +13,7 @@ protocol WalletHistoryProtocol {
     var transactions: [TransactionEntity] { get set }
     var contentDidChanged : (() -> Void)?  { get set }
     func loadTransactions()
+    func loadWallet()
     func deleteTransaction(indexPath: IndexPath, complition: () -> Void)
 }
 
@@ -51,13 +52,27 @@ final class WalletHistoryViewModel: NSObject, WalletHistoryProtocol, NSFetchedRe
         }
     }
     
+    func loadWallet() {
+        let request = WalletEntity.fetchRequest()
+        guard let walletName = wallet?.walletName, let currency = wallet?.currency else {return}
+        request.predicate = NSPredicate(format: "walletName == %@", walletName)
+        request.predicate = NSPredicate(format: "currency == %@", currency)
+        
+        if let result = try? CoreDataService.shared.managedObjectContext.fetch(request) {
+            if let wallet = result.first {
+                self.wallet = wallet
+            }
+        }
+        
+    }
+    
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        loadTransactions()
+            loadTransactions()
     }
     
     func deleteTransaction(indexPath: IndexPath, complition: () -> Void) {
         let transactionToDel = transactions[indexPath.row]
-        wallet?.calc(transaction: transactionToDel)
+        wallet?.deleteTransaction(transactionToDel)
         complition()
         CoreDataService.shared.managedObjectContext.delete(transactionToDel)
         CoreDataService.shared.saveContext()

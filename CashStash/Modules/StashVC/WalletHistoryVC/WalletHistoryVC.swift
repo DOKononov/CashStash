@@ -33,6 +33,7 @@ final class WalletHistoryVC: UIViewController {
         registerCell()
     }
     
+    
     private func bind() {
         viewModel.contentDidChanged = {
             self.tableView.reloadData()
@@ -76,15 +77,17 @@ extension WalletHistoryVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let editeVC = AddTransactionVC(nibName: "\(AddTransactionVC.self)", bundle: nil)
-                
+        
         editeVC.viewModel.myTransaction = viewModel.transactions[indexPath.row]
+        editeVC.viewModel.wallet = viewModel.wallet
+        editeVC.viewModel.delegate = self
         self.navigationController?.pushViewController(editeVC, animated: true)
     }
     
     //MARK: delete transaction
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteTransaction = UIContextualAction(style: .destructive,
-                                     title: "Delete") { _, _, _ in
+                                                   title: "Delete") { _, _, _ in
             self.viewModel.deleteTransaction(indexPath: indexPath) {
                 self.updateWalletInfo()
             }
@@ -96,9 +99,12 @@ extension WalletHistoryVC: UITableViewDelegate, UITableViewDataSource {
 //MARK: delegate
 extension WalletHistoryVC: WalletHistoryDelegate {
     func updateWalletInfo() {
+        viewModel.loadWallet()
         walletNameLabel.text = viewModel.wallet?.walletName
         guard let currency = viewModel.wallet?.currency,
               let amount = viewModel.wallet?.amount.formatNumber() else {return}
         amountLabel.text = amount + " " + currency
     }
+    
+    
 }

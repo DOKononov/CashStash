@@ -9,6 +9,7 @@ import Foundation
 
 extension String {
     func double() -> Double {
-        return Double(self) ?? 0
+        let str = self.filter { $0 != " " }
+        return Double(str) ?? 0
     }
 }

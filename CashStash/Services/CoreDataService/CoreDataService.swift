@@ -42,16 +42,37 @@ final class CoreDataService {
     }
     
     func ifTransactionExist(components: TransactionComponents, wallet: WalletEntity) -> Bool {
-        let request = TransactionEntity.fetchRequest()
-        request.predicate = NSPredicate(format: "amount == %f", components.amount)
-        request.predicate = NSPredicate(format: "date == %@", components.date as NSDate)
-        request.predicate = NSPredicate(format: "income == %d", components.income)
-        request.predicate = NSPredicate(format: "tDescription == %@", components.description)
+        let request = transactionRequest(components: components, wallet: wallet)
         if let result = try? CoreDataService.shared.managedObjectContext.fetch(request) {
             return result.count > 0
         } else {
             return false
         }
+    }
+    
+    func getTransaction(components: TransactionComponents, wallet: WalletEntity) -> TransactionEntity? {
+        let request = transactionRequest(components: components, wallet: wallet)
+        if let result = try? CoreDataService.shared.managedObjectContext.fetch(request) {
+            guard let transaction = result.first else {return nil}
+            return transaction
+        }
+        return nil
+    }
+    
+    private func transactionRequest(components: TransactionComponents, wallet: WalletEntity) -> NSFetchRequest<TransactionEntity> {
+        let request = TransactionEntity.fetchRequest()
+       let amountPredicate = NSPredicate(format: "amount == %f", components.amount)
+        let datePredicate = NSPredicate(format: "date == %@", components.date as NSDate)
+        let incomePredicate = NSPredicate(format: "income == %d", components.income)
+        let descriptionPredicate = NSPredicate(format: "tDescription == %@", components.description)
+        let walletPredicate  = NSPredicate(format: "wallet == %@", wallet)
+        request.predicate = NSCompoundPredicate(type: .and, subpredicates: [amountPredicate,
+                                                                            datePredicate,
+                                                                            incomePredicate,
+                                                                            datePredicate,
+                                                                            descriptionPredicate,
+                                                                            walletPredicate])
+        return request
     }
 }
 

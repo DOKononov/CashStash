@@ -42,7 +42,10 @@ final class AddTransactionVC: UIViewController {
     
     @IBAction private func saveDidTapped(_ sender: UIButton) {
         guard dateTF.hasText, descriptionTF.hasText, amountTF.hasText, tTypeTF.hasText else {return}
-        guard let amount = amountTF.text, let description = descriptionTF.text, let date = date, let income = income else {return}
+        guard let amount = amountTF.text,
+                let description = descriptionTF.text,
+                let date = date,
+                let income = income else {return}
         
         let components = TransactionComponents(income: income,
                                                amount: amount.double(),
@@ -50,7 +53,6 @@ final class AddTransactionVC: UIViewController {
                                                description: description)
         
         viewModel.saveDidTaped(components: components)
-        
         viewModel.delegate?.updateWalletInfo()
         closeVC()
     }
@@ -87,12 +89,14 @@ final class AddTransactionVC: UIViewController {
         let dateFormater = DateFormatter()
         dateFormater.dateFormat = "dd.MM.yyyy"
         dateTF.text = dateFormater.string(from: transaction.date ?? Date() )
+        date = transaction.date
         
         descriptionTF.text = transaction.tDescription
         amountTF.text = transaction.amount.formatNumber()
         transaction.income ?
         (tTypeTF.text = TransactionType.income.rawValue) :
         (tTypeTF.text = TransactionType.expance.rawValue)
+        income = transaction.income
     }
     
     private func closeVC() {

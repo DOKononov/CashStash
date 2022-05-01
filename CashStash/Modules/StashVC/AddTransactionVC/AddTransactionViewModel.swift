@@ -6,8 +6,7 @@
 //
 
 import Foundation
-
-
+import CoreData
 
 protocol AddTransactionProtocol {
     var delegate: WalletHistoryDelegate? { get set }
@@ -24,28 +23,22 @@ final class AddTransactionViewModel: AddTransactionProtocol {
     
     //TODO: if exist - edite else save
     func saveDidTaped(components: TransactionComponents) {
-        guard let wallet = wallet else { return }
-
         //edite transaction
-        if CoreDataService.shared.ifTransactionExist(components: components, wallet: wallet) {
+        if let editedTransaction = myTransaction {
             
-            //create new transaction
+            wallet?.deleteTransaction(editedTransaction)
+            editeExisting(transaction: editedTransaction, with: components)
+            wallet?.addTransaction(editedTransaction)
+            
         } else {
-            let newTransaction = createTransaction(components)
-            self.updateWalletAmount(transaction: newTransaction)
-            CoreDataService.shared.saveContext()
+            let newTransaction = createTransaction(from: components)
+            wallet?.addTransaction(newTransaction)
         }
+        CoreDataService.shared.saveContext()
     }
     
-    private func updateWalletAmount(transaction: TransactionEntity) {
-        if  transaction.income {
-            wallet?.amount += transaction.amount
-        } else {
-            wallet?.amount -= transaction.amount
-        }
-    }
     
-    private func createTransaction(_ components: TransactionComponents) -> TransactionEntity {
+    private func createTransaction(from components: TransactionComponents) -> TransactionEntity {
         let newTransaction = TransactionEntity(context: CoreDataService.shared.managedObjectContext)
         newTransaction.income = components.income
         newTransaction.amount = components.amount
@@ -53,6 +46,13 @@ final class AddTransactionViewModel: AddTransactionProtocol {
         newTransaction.tDescription = components.description
         newTransaction.wallet = wallet
         return newTransaction
+    }
+    
+    private func editeExisting(transaction: TransactionEntity, with components: TransactionComponents) {
+        transaction.tDescription = components.description
+        transaction.income = components.income
+        transaction.date = components.date
+        transaction.amount = components.amount
     }
     
 }
