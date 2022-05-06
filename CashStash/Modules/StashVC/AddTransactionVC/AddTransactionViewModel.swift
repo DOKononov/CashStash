@@ -11,6 +11,8 @@ import CoreData
 protocol AddTransactionProtocol {
     var delegate: WalletHistoryDelegate? { get set }
     var wallet: WalletEntity? { get set }
+    var date: Date? { get set }
+    var income: Bool? { get set }
     var myTransaction: TransactionEntity? { get set }
     func saveDidTaped(components: TransactionComponents)
 }
@@ -19,6 +21,8 @@ final class AddTransactionViewModel: AddTransactionProtocol {
     var delegate: WalletHistoryDelegate?
     var wallet: WalletEntity?
     var myTransaction: TransactionEntity?
+    var date: Date?
+    var income: Bool?
 
     
     //TODO: if exist - edite else save

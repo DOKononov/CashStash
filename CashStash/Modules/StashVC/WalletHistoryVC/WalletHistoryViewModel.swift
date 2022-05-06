@@ -55,8 +55,9 @@ final class WalletHistoryViewModel: NSObject, WalletHistoryProtocol, NSFetchedRe
     func loadWallet() {
         let request = WalletEntity.fetchRequest()
         guard let walletName = wallet?.walletName, let currency = wallet?.currency else {return}
-        request.predicate = NSPredicate(format: "walletName == %@", walletName)
-        request.predicate = NSPredicate(format: "currency == %@", currency)
+        let walletNamePredicare = NSPredicate(format: "walletName == %@", walletName)
+        let currencyPredicate = NSPredicate(format: "currency == %@", currency)
+        request.predicate = NSCompoundPredicate(type: .and, subpredicates: [walletNamePredicare, currencyPredicate])
         
         if let result = try? CoreDataService.shared.managedObjectContext.fetch(request) {
             if let wallet = result.first {

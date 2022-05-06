@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 enum TransactionType: String, CaseIterable {
     case income = "Income"
     case expance = "Expance"
@@ -29,27 +28,24 @@ final class AddTransactionVC: UIViewController {
     @IBOutlet weak var amountTF: UITextField! {  didSet { amountTF.delegate = self } }
     @IBOutlet weak var tTypeTF: UITextField!
     
-    var date: Date?
-    var income: Bool?
-    
     var viewModel: AddTransactionProtocol = AddTransactionViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTypePicker()
         setupDatePicker()
         setupVC()
+        setVCDefaultValue()
     }
     
     @IBAction private func saveDidTapped(_ sender: UIButton) {
         guard dateTF.hasText, descriptionTF.hasText, amountTF.hasText, tTypeTF.hasText else {return}
         guard let amount = amountTF.text,
                 let description = descriptionTF.text,
-                let date = date,
-                let income = income else {return}
+              let date = viewModel.date,
+              let income = viewModel.income else {return}
         
-        let components = TransactionComponents(income: income,
-                                               amount: amount.double(),
-                                               date: date,
+        let components = TransactionComponents(income: income, amount: amount.double(), date: date,
                                                description: description)
         
         viewModel.saveDidTaped(components: components)
@@ -61,7 +57,7 @@ final class AddTransactionVC: UIViewController {
         let picker = UIDatePicker()
         picker.datePickerMode = .date
         dateTF.inputView = picker
-        picker.preferredDatePickerStyle = .wheels
+        picker.preferredDatePickerStyle = .inline
         picker.addTarget(self, action: #selector(datePickerChangedValue), for: .valueChanged)
     }
     
@@ -69,7 +65,7 @@ final class AddTransactionVC: UIViewController {
         let dateFormater = DateFormatter()
         dateFormater.dateFormat = "dd.MM.yyyy"
         dateTF.text = dateFormater.string(from: sender.date)
-        date = sender.date
+        viewModel.date = sender.date
     }
     
     private func setupTypePicker() {
@@ -86,17 +82,8 @@ final class AddTransactionVC: UIViewController {
     func setupVC() {
         guard let transaction = viewModel.myTransaction  else {return}
         titleLabel.text = ""
-        let dateFormater = DateFormatter()
-        dateFormater.dateFormat = "dd.MM.yyyy"
-        dateTF.text = dateFormater.string(from: transaction.date ?? Date() )
-        date = transaction.date
-        
         descriptionTF.text = transaction.tDescription
         amountTF.text = transaction.amount.formatNumber()
-        transaction.income ?
-        (tTypeTF.text = TransactionType.income.rawValue) :
-        (tTypeTF.text = TransactionType.expance.rawValue)
-        income = transaction.income
     }
     
     private func closeVC() {
@@ -105,6 +92,17 @@ final class AddTransactionVC: UIViewController {
         } else {
             self.dismiss(animated: true)
         }
+    }
+    
+    private func setVCDefaultValue() {
+        let date = Date()
+        viewModel.date = date
+        let dateFormater = DateFormatter()
+        dateFormater.dateFormat = "dd.MM.yyyy"
+        dateTF.text = dateFormater.string(from: date)
+        
+        viewModel.income = TransactionType.income.bool
+        tTypeTF.text = TransactionType.income.rawValue
     }
 }
 
@@ -124,7 +122,7 @@ extension AddTransactionVC: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         tTypeTF.text = TransactionType.allCases[row].rawValue
-        income = TransactionType.allCases[row].bool
+        viewModel.income = TransactionType.allCases[row].bool
         view.endEditing(true)
     }
 }
