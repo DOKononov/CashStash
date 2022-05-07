@@ -26,6 +26,7 @@ final class StashVC: UIViewController {
         viewModel.loadWalletsEntities()
         setupNavigationItem()
         viewModel.updateTotalAmount()
+        setTransferButtonStatus()
     }
 
     private func registerStashCell() {
@@ -37,9 +38,18 @@ final class StashVC: UIViewController {
         viewModel.didChangeContent = {
             self.tableView.reloadData()
             self.totalAmountLabel.text = self.viewModel.totalAmount.myRound().formatNumber() + " USD"
+            self.setTransferButtonStatus()
         }
     }
 
+    private func setTransferButtonStatus() {
+        guard let transferButton = self.navigationItem.rightBarButtonItems?.last else {return}
+        if self.viewModel.walletsEntity.count > 1 {
+            transferButton.isEnabled = true
+        } else {
+            transferButton.isEnabled = false
+        }
+    }
 }
 
 
@@ -71,7 +81,7 @@ extension StashVC: UITableViewDelegate, UITableViewDataSource {
 // MARK: - BarButton
 extension StashVC {
     private func setupNavigationItem() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add,
+        let newWalletButton = UIBarButtonItem(barButtonSystemItem: .add,
                                                             target: self,
                                                             action:  #selector(addNewWallet))
 
@@ -79,6 +89,12 @@ extension StashVC {
                                                            style: .done,
                                                            target: self,
                                                            action: #selector(refreshTotal))
+        let transferButton = UIBarButtonItem(image: UIImage(systemName: "repeat"),
+                                                            style: .plain,
+                                                            target: self,
+                                                            action: #selector(transferButtonDidPressed))
+        
+        navigationItem.rightBarButtonItems = [newWalletButton, transferButton]
     }
     
     @objc private func addNewWallet() {
@@ -88,5 +104,9 @@ extension StashVC {
     
     @objc private func refreshTotal() {
         viewModel.updateTotalAmount()
+    }
+    
+    @objc private func transferButtonDidPressed() {
+        //TODO: present transferVC
     }
 }

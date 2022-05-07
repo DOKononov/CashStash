@@ -21,6 +21,8 @@
 		566863E12804569800FDF345 /* AddWalletVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 566863DF2804569800FDF345 /* AddWalletVC.xib */; };
 		566863E3280465DA00FDF345 /* String+Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566863E2280465DA00FDF345 /* String+Double.swift */; };
 		566863EB28048C2500FDF345 /* Double+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566863EA28048C2500FDF345 /* Double+String.swift */; };
+		566DD18D2826A56400445C39 /* TransferVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566DD18B2826A56400445C39 /* TransferVC.swift */; };
+		566DD18E2826A56400445C39 /* TransferVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 566DD18C2826A56400445C39 /* TransferVC.xib */; };
 		568E0BB627F7128800A91E4D /* StashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568E0BB427F7128800A91E4D /* StashVC.swift */; };
 		568E0BB727F7128900A91E4D /* StashVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 568E0BB527F7128800A91E4D /* StashVC.xib */; };
 		568E0BB927F7196000A91E4D /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568E0BB827F7196000A91E4D /* NetworkService.swift */; };
@@ -58,6 +60,8 @@
 		566863DF2804569800FDF345 /* AddWalletVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddWalletVC.xib; sourceTree = "<group>"; };
 		566863E2280465DA00FDF345 /* String+Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Double.swift"; sourceTree = "<group>"; };
 		566863EA28048C2500FDF345 /* Double+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+String.swift"; sourceTree = "<group>"; };
+		566DD18B2826A56400445C39 /* TransferVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferVC.swift; sourceTree = "<group>"; };
+		566DD18C2826A56400445C39 /* TransferVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransferVC.xib; sourceTree = "<group>"; };
 		568E0BB427F7128800A91E4D /* StashVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StashVC.swift; sourceTree = "<group>"; };
 		568E0BB527F7128800A91E4D /* StashVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StashVC.xib; sourceTree = "<group>"; };
 		568E0BB827F7196000A91E4D /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
@@ -141,6 +145,7 @@
 				563482FF27FF4630002C3392 /* AddWalletVC */,
 				5634E3A1280F1F4D009AA3DA /* WalletHistoryVC */,
 				56A22B952811C0B300E29AEA /* AddTransactionVC */,
+				566DD18F2826A56B00445C39 /* TransferVC */,
 			);
 			path = StashVC;
 			sourceTree = "<group>";
@@ -173,6 +178,16 @@
 				565630172811C4D900B3595E /* TransactionEntity+CoreDataProperties.swift */,
 			);
 			path = Modeles;
+			sourceTree = "<group>";
+		};
+		566DD18F2826A56B00445C39 /* TransferVC */ = {
+			isa = PBXGroup;
+			children = (
+				566DD18B2826A56400445C39 /* TransferVC.swift */,
+				566DD18C2826A56400445C39 /* TransferVC.xib */,
+			);
+			name = TransferVC;
+			path = ../../..;
 			sourceTree = "<group>";
 		};
 		568E0BBA27F7196C00A91E4D /* Services */ = {
@@ -330,6 +345,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				566863E12804569800FDF345 /* AddWalletVC.xib in Resources */,
+				566DD18E2826A56400445C39 /* TransferVC.xib in Resources */,
 				56BC36F427F9EC3D006730A0 /* StashTableViewCell.xib in Resources */,
 				5656301F2814201B00B3595E /* TransactionCell.xib in Resources */,
 				5634E3A0280F1F04009AA3DA /* WalletHistoryVC.xib in Resources */,
@@ -359,6 +375,7 @@
 				56B68D5728197E6200217C6E /* TransactionComponents.swift in Sources */,
 				56A22B932811C0AB00E29AEA /* AddTransactionVC.swift in Sources */,
 				566863D8280446F900FDF345 /* CoreDataService.swift in Sources */,
+				566DD18D2826A56400445C39 /* TransferVC.swift in Sources */,
 				56926A0C27F6E39100ECF742 /* AppDelegate.swift in Sources */,
 				568E0BBD27F71F5400A91E4D /* ExcangeModel.swift in Sources */,
 				568E0BB627F7128800A91E4D /* StashVC.swift in Sources */,

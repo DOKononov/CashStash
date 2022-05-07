@@ -23,7 +23,7 @@ final class StashViewModel: NSObject, StashViewModelProtocol, NSFetchedResultsCo
     
     var walletsEntity: [WalletEntity] = [] {
         didSet {
-            calcTotalAmount()
+            updateTotalAmount()
             didChangeContent?()
         }
     }
@@ -31,20 +31,11 @@ final class StashViewModel: NSObject, StashViewModelProtocol, NSFetchedResultsCo
     
     var totalAmount: Double = 0
     var didChangeContent: (() -> Void)?
-    func updateTotalAmount() {
-        calcTotalAmount()
-    }
     
-    private func setupFetchResultController() {
-        let request = WalletEntity.fetchRequest()
-        let sortDescriptor = NSSortDescriptor(key: "walletName", ascending: true)
-        request.sortDescriptors = [sortDescriptor]
-        
-        fetchResultContoller = NSFetchedResultsController(fetchRequest: request,
-                                                          managedObjectContext: CoreDataService.shared.managedObjectContext,
-                                                          sectionNameKeyPath: nil,
-                                                          cacheName: nil)
-        fetchResultContoller.delegate = self
+    func updateTotalAmount() {
+        var tempSumm = 0.0
+        walletsEntity.forEach { tempSumm += ($0.amount / $0.rate).myRound() }
+        totalAmount = tempSumm
     }
     
     func loadWalletsEntities() {
@@ -55,11 +46,6 @@ final class StashViewModel: NSObject, StashViewModelProtocol, NSFetchedResultsCo
             walletsEntity = result
         }
     }
-    
-    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        loadWalletsEntities()
-    }
-    
     
     func deleteWallet(indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let del = UIContextualAction(style: .destructive, title: "Delete") { _, _, _ in
@@ -76,10 +62,21 @@ final class StashViewModel: NSObject, StashViewModelProtocol, NSFetchedResultsCo
         return UISwipeActionsConfiguration(actions: [del])
     }
     
-    private func calcTotalAmount() {
-        var tempSumm = 0.0
-        walletsEntity.forEach { tempSumm += ($0.amount / $0.rate).myRound() }
-        totalAmount = tempSumm
+    //MARK: FetchedResultsController
+    private func setupFetchResultController() {
+        let request = WalletEntity.fetchRequest()
+        let sortDescriptor = NSSortDescriptor(key: "walletName", ascending: true)
+        request.sortDescriptors = [sortDescriptor]
+        
+        fetchResultContoller = NSFetchedResultsController(fetchRequest: request,
+                                                          managedObjectContext: CoreDataService.shared.managedObjectContext,
+                                                          sectionNameKeyPath: nil,
+                                                          cacheName: nil)
+        fetchResultContoller.delegate = self
     }
     
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        loadWalletsEntities()
+    }
+
 }
