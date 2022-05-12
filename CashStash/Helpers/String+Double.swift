@@ -10,6 +10,7 @@ import Foundation
 extension String {
     func double() -> Double {
         let str = self.filter { $0 != " " }
-        return Double(str) ?? 0
+        return Double(str)?.myRound() ?? 0
     }
+
 }

@@ -44,7 +44,7 @@ final class StashVC: UIViewController {
 
     private func setTransferButtonStatus() {
         guard let transferButton = self.navigationItem.rightBarButtonItems?.last else {return}
-        if self.viewModel.walletsEntity.count > 1 {
+        if self.viewModel.wallets.count > 1 {
             transferButton.isEnabled = true
         } else {
             transferButton.isEnabled = false
@@ -55,19 +55,19 @@ final class StashVC: UIViewController {
 
 extension StashVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.walletsEntity.count
+        return viewModel.wallets.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "\(StashTableViewCell.self)", for: indexPath) as? StashTableViewCell
-        cell?.setup(wallet: viewModel.walletsEntity[indexPath.row])
+        cell?.setup(wallet: viewModel.wallets[indexPath.row])
         return cell ?? UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let walleteHistoryVC = WalletHistoryVC(nibName: "\(WalletHistoryVC.self)", bundle: nil)
-        walleteHistoryVC.viewModel.wallet = viewModel.walletsEntity[indexPath.row]
+        walleteHistoryVC.viewModel.wallet = viewModel.wallets[indexPath.row]
         navigationController?.pushViewController(walleteHistoryVC, animated: true)
         
     }
@@ -107,6 +107,8 @@ extension StashVC {
     }
     
     @objc private func transferButtonDidPressed() {
-        //TODO: present transferVC
+        let nextNC = TransferNC(nibName: "\(TransferNC.self)", bundle: nil)
+        nextNC.wallets = viewModel.wallets
+        present(nextNC, animated: true)
     }
 }

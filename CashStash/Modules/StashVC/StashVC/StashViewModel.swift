@@ -10,7 +10,7 @@ import CoreData
 import UIKit
 
 protocol StashViewModelProtocol {
-    var walletsEntity: [WalletEntity] { get set }
+    var wallets: [WalletEntity] { get set }
     var didChangeContent: (() -> Void)? { get set }
     var totalAmount: Double { get }
     func updateTotalAmount()
@@ -21,7 +21,7 @@ protocol StashViewModelProtocol {
 
 final class StashViewModel: NSObject, StashViewModelProtocol, NSFetchedResultsControllerDelegate {
     
-    var walletsEntity: [WalletEntity] = [] {
+    var wallets: [WalletEntity] = [] {
         didSet {
             updateTotalAmount()
             didChangeContent?()
@@ -34,7 +34,7 @@ final class StashViewModel: NSObject, StashViewModelProtocol, NSFetchedResultsCo
     
     func updateTotalAmount() {
         var tempSumm = 0.0
-        walletsEntity.forEach { tempSumm += ($0.amount / $0.rate).myRound() }
+        wallets.forEach { tempSumm += ($0.amount / $0.rate).myRound() }
         totalAmount = tempSumm
     }
     
@@ -43,13 +43,13 @@ final class StashViewModel: NSObject, StashViewModelProtocol, NSFetchedResultsCo
         try? fetchResultContoller.performFetch()
         
         if let result = fetchResultContoller.fetchedObjects {
-            walletsEntity = result
+            wallets = result
         }
     }
     
     func deleteWallet(indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let del = UIContextualAction(style: .destructive, title: "Delete") { _, _, _ in
-            let modelToDelete = self.walletsEntity[indexPath.row]
+            let modelToDelete = self.wallets[indexPath.row]
             let request = WalletEntity.fetchRequest()
             guard let name = modelToDelete.walletName else { return }
             request.predicate = NSPredicate(format: "walletName = %@", name)

@@ -23,6 +23,16 @@
 		566863EB28048C2500FDF345 /* Double+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566863EA28048C2500FDF345 /* Double+String.swift */; };
 		566DD18D2826A56400445C39 /* TransferVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566DD18B2826A56400445C39 /* TransferVC.swift */; };
 		566DD18E2826A56400445C39 /* TransferVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 566DD18C2826A56400445C39 /* TransferVC.xib */; };
+		566DD1912827DE8900445C39 /* TransferViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566DD1902827DE8900445C39 /* TransferViewModel.swift */; };
+		566DD1942827DEC400445C39 /* TransferTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566DD1922827DEC300445C39 /* TransferTableViewCell.swift */; };
+		566DD1952827DEC400445C39 /* TransferTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 566DD1932827DEC400445C39 /* TransferTableViewCell.xib */; };
+		5681BAB82827EEBF0068D968 /* TransferWalletsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5681BAB62827EEBF0068D968 /* TransferWalletsList.swift */; };
+		5681BAB92827EEBF0068D968 /* TransferWalletsList.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5681BAB72827EEBF0068D968 /* TransferWalletsList.xib */; };
+		5681BABC2827EF110068D968 /* TransferWalletsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5681BABB2827EF110068D968 /* TransferWalletsListViewModel.swift */; };
+		5681BABF2827EF7C0068D968 /* TransferWalletsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5681BABD2827EF7C0068D968 /* TransferWalletsListTableViewCell.swift */; };
+		5681BAC02827EF7C0068D968 /* TransferWalletsListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5681BABE2827EF7C0068D968 /* TransferWalletsListTableViewCell.xib */; };
+		5681BAC42827F3190068D968 /* TransferNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5681BAC22827F3190068D968 /* TransferNC.swift */; };
+		5681BAC52827F3190068D968 /* TransferNC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5681BAC32827F3190068D968 /* TransferNC.xib */; };
 		568E0BB627F7128800A91E4D /* StashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568E0BB427F7128800A91E4D /* StashVC.swift */; };
 		568E0BB727F7128900A91E4D /* StashVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 568E0BB527F7128800A91E4D /* StashVC.xib */; };
 		568E0BB927F7196000A91E4D /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568E0BB827F7196000A91E4D /* NetworkService.swift */; };
@@ -62,6 +72,16 @@
 		566863EA28048C2500FDF345 /* Double+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+String.swift"; sourceTree = "<group>"; };
 		566DD18B2826A56400445C39 /* TransferVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferVC.swift; sourceTree = "<group>"; };
 		566DD18C2826A56400445C39 /* TransferVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransferVC.xib; sourceTree = "<group>"; };
+		566DD1902827DE8900445C39 /* TransferViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferViewModel.swift; sourceTree = "<group>"; };
+		566DD1922827DEC300445C39 /* TransferTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferTableViewCell.swift; sourceTree = "<group>"; };
+		566DD1932827DEC400445C39 /* TransferTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransferTableViewCell.xib; sourceTree = "<group>"; };
+		5681BAB62827EEBF0068D968 /* TransferWalletsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferWalletsList.swift; sourceTree = "<group>"; };
+		5681BAB72827EEBF0068D968 /* TransferWalletsList.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransferWalletsList.xib; sourceTree = "<group>"; };
+		5681BABB2827EF110068D968 /* TransferWalletsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferWalletsListViewModel.swift; sourceTree = "<group>"; };
+		5681BABD2827EF7C0068D968 /* TransferWalletsListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferWalletsListTableViewCell.swift; sourceTree = "<group>"; };
+		5681BABE2827EF7C0068D968 /* TransferWalletsListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransferWalletsListTableViewCell.xib; sourceTree = "<group>"; };
+		5681BAC22827F3190068D968 /* TransferNC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferNC.swift; sourceTree = "<group>"; };
+		5681BAC32827F3190068D968 /* TransferNC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransferNC.xib; sourceTree = "<group>"; };
 		568E0BB427F7128800A91E4D /* StashVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StashVC.swift; sourceTree = "<group>"; };
 		568E0BB527F7128800A91E4D /* StashVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StashVC.xib; sourceTree = "<group>"; };
 		568E0BB827F7196000A91E4D /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
@@ -145,7 +165,9 @@
 				563482FF27FF4630002C3392 /* AddWalletVC */,
 				5634E3A1280F1F4D009AA3DA /* WalletHistoryVC */,
 				56A22B952811C0B300E29AEA /* AddTransactionVC */,
+				5681BAC62827F3290068D968 /* TransferNC */,
 				566DD18F2826A56B00445C39 /* TransferVC */,
+				5681BABA2827EECA0068D968 /* TransferWalletsList */,
 			);
 			path = StashVC;
 			sourceTree = "<group>";
@@ -183,11 +205,51 @@
 		566DD18F2826A56B00445C39 /* TransferVC */ = {
 			isa = PBXGroup;
 			children = (
+				566DD1962827DED200445C39 /* TransferTableViewCell */,
 				566DD18B2826A56400445C39 /* TransferVC.swift */,
 				566DD18C2826A56400445C39 /* TransferVC.xib */,
+				566DD1902827DE8900445C39 /* TransferViewModel.swift */,
 			);
 			name = TransferVC;
 			path = ../../..;
+			sourceTree = "<group>";
+		};
+		566DD1962827DED200445C39 /* TransferTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				566DD1922827DEC300445C39 /* TransferTableViewCell.swift */,
+				566DD1932827DEC400445C39 /* TransferTableViewCell.xib */,
+			);
+			path = TransferTableViewCell;
+			sourceTree = "<group>";
+		};
+		5681BABA2827EECA0068D968 /* TransferWalletsList */ = {
+			isa = PBXGroup;
+			children = (
+				5681BAC12827EF830068D968 /* TransferWalletsList */,
+				5681BAB62827EEBF0068D968 /* TransferWalletsList.swift */,
+				5681BAB72827EEBF0068D968 /* TransferWalletsList.xib */,
+				5681BABB2827EF110068D968 /* TransferWalletsListViewModel.swift */,
+			);
+			path = TransferWalletsList;
+			sourceTree = "<group>";
+		};
+		5681BAC12827EF830068D968 /* TransferWalletsList */ = {
+			isa = PBXGroup;
+			children = (
+				5681BABD2827EF7C0068D968 /* TransferWalletsListTableViewCell.swift */,
+				5681BABE2827EF7C0068D968 /* TransferWalletsListTableViewCell.xib */,
+			);
+			path = TransferWalletsList;
+			sourceTree = "<group>";
+		};
+		5681BAC62827F3290068D968 /* TransferNC */ = {
+			isa = PBXGroup;
+			children = (
+				5681BAC22827F3190068D968 /* TransferNC.swift */,
+				5681BAC32827F3190068D968 /* TransferNC.xib */,
+			);
+			path = TransferNC;
 			sourceTree = "<group>";
 		};
 		568E0BBA27F7196C00A91E4D /* Services */ = {
@@ -348,10 +410,14 @@
 				566DD18E2826A56400445C39 /* TransferVC.xib in Resources */,
 				56BC36F427F9EC3D006730A0 /* StashTableViewCell.xib in Resources */,
 				5656301F2814201B00B3595E /* TransactionCell.xib in Resources */,
+				5681BAC02827EF7C0068D968 /* TransferWalletsListTableViewCell.xib in Resources */,
 				5634E3A0280F1F04009AA3DA /* WalletHistoryVC.xib in Resources */,
+				566DD1952827DEC400445C39 /* TransferTableViewCell.xib in Resources */,
+				5681BAC52827F3190068D968 /* TransferNC.xib in Resources */,
 				56926A2627F70F9600ECF742 /* Main.storyboard in Resources */,
 				56926A1B27F6E39300ECF742 /* LaunchScreen.storyboard in Resources */,
 				56A22B942811C0AB00E29AEA /* AddTransactionVC.xib in Resources */,
+				5681BAB92827EEBF0068D968 /* TransferWalletsList.xib in Resources */,
 				568E0BB727F7128900A91E4D /* StashVC.xib in Resources */,
 				56926A1827F6E39300ECF742 /* Assets.xcassets in Resources */,
 			);
@@ -365,7 +431,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				56A22B842811B99E00E29AEA /* Transaction.swift in Sources */,
+				5681BAC42827F3190068D968 /* TransferNC.swift in Sources */,
 				5656301A2811C4D900B3595E /* TransactionEntity+CoreDataClass.swift in Sources */,
+				5681BAB82827EEBF0068D968 /* TransferWalletsList.swift in Sources */,
 				5656301B2811C4D900B3595E /* TransactionEntity+CoreDataProperties.swift in Sources */,
 				56BC36FD27FA080E006730A0 /* CurrencyList.swift in Sources */,
 				568E0BB927F7196000A91E4D /* NetworkService.swift in Sources */,
@@ -375,6 +443,7 @@
 				56B68D5728197E6200217C6E /* TransactionComponents.swift in Sources */,
 				56A22B932811C0AB00E29AEA /* AddTransactionVC.swift in Sources */,
 				566863D8280446F900FDF345 /* CoreDataService.swift in Sources */,
+				5681BABC2827EF110068D968 /* TransferWalletsListViewModel.swift in Sources */,
 				566DD18D2826A56400445C39 /* TransferVC.swift in Sources */,
 				56926A0C27F6E39100ECF742 /* AppDelegate.swift in Sources */,
 				568E0BBD27F71F5400A91E4D /* ExcangeModel.swift in Sources */,
@@ -383,12 +452,15 @@
 				5656301E2814201B00B3595E /* TransactionCell.swift in Sources */,
 				56A22B7A280F21B800E29AEA /* WalletHistoryViewModel.swift in Sources */,
 				566863E3280465DA00FDF345 /* String+Double.swift in Sources */,
+				566DD1912827DE8900445C39 /* TransferViewModel.swift in Sources */,
 				566863E02804569800FDF345 /* AddWalletVC.swift in Sources */,
 				5634E39C280D6AA5009AA3DA /* AddWalletViewModel.swift in Sources */,
 				566863EB28048C2500FDF345 /* Double+String.swift in Sources */,
+				5681BABF2827EF7C0068D968 /* TransferWalletsListTableViewCell.swift in Sources */,
 				56A22B972811C0DB00E29AEA /* AddTransactionViewModel.swift in Sources */,
 				56BC36F727F9F9BB006730A0 /* StashViewModel.swift in Sources */,
 				5634E39F280F1F04009AA3DA /* WalletHistoryVC.swift in Sources */,
+				566DD1942827DEC400445C39 /* TransferTableViewCell.swift in Sources */,
 				56926A0E27F6E39100ECF742 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

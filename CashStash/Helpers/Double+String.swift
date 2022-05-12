@@ -16,7 +16,7 @@ extension Double {
      func formatNumber() -> String {
         let formater = NumberFormatter()
         formater.numberStyle = .decimal
-        formater.decimalSeparator = ","
+        formater.decimalSeparator = "."
         formater.groupingSeparator = " "
         guard let str = formater.string(from: self as NSNumber) else {return "error"}
         return str
