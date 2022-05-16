@@ -41,6 +41,8 @@ final class TransferVC: UIViewController, TransferWalletsListProtocol {
     
     //actions
     @IBAction func saveDidTapped(_ sender: UIButton) {
+        viewModel.saveButtonDidTapped()
+        self.dismiss(animated: true)
     }
     
     //funcs

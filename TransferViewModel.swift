@@ -15,6 +15,7 @@ protocol TransferViewModelProtocol {
     var bufferNumber: Double { get set }
     var conversionRate: Double { get set }
     var bufferNumberDidChanged: (() -> Void)? { get set }
+    func saveButtonDidTapped()
     func updateUIAfterEditingTF(textfield: UITextField)
     func setupTextField(textField: UITextField, string: String) -> Bool
 }
@@ -37,22 +38,63 @@ final class TransferViewModel: TransferViewModelProtocol {
     }
     var walletsModels: [WalletModel] = []
     
-    private var topWalletDefaultAmount = 0.0 
+    private var topWalletDefaultAmount = 0.0
     private var botWalletDefaultAmount = 0.0
+    
+    private var topTransferAmount = 0.0 {
+        didSet {
+            print("topTransferAmount ", topTransferAmount)
+        }
+    }
+    private var botTransferAmount = 0.0
     
     
     //funcs
     func updateUIAfterEditingTF(textfield: UITextField) {
         guard let topTFEditing = topTFEditing else {return}
         if topTFEditing {
-            textfield.text = (bufferNumber * conversionRate).formatNumber()
+            topTransferAmount = bufferNumber
+            botTransferAmount = bufferNumber * conversionRate
+            textfield.text = botTransferAmount.formatNumber()
             walletsModels[0].amount = topWalletDefaultAmount - bufferNumber
             walletsModels[1].amount = botWalletDefaultAmount + bufferNumber * conversionRate
+            
         } else {
-            textfield.text = (bufferNumber / conversionRate).formatNumber()
+            topTransferAmount = bufferNumber / conversionRate
+            botTransferAmount = bufferNumber
+            textfield.text = topTransferAmount.formatNumber()
             walletsModels[0].amount = topWalletDefaultAmount - bufferNumber
             walletsModels[1].amount = botWalletDefaultAmount + bufferNumber * conversionRate
         }
+    }
+    
+    func saveButtonDidTapped() {
+        
+        createNewTransaction(fromWallet: wallets[0],
+                             forTop: true,
+                             otherWallet: wallets[1])
+        
+        createNewTransaction(fromWallet: wallets[1],
+                             forTop: false,
+                             otherWallet: wallets[0])
+    }
+    
+    private func createNewTransaction(fromWallet: WalletEntity, forTop: Bool, otherWallet: WalletEntity) {
+        guard let topTFEditing = topTFEditing else { return }
+
+        guard let otherWallet = otherWallet.walletName else { return }
+        let newTransaction = TransactionEntity(context: CoreDataService.shared.managedObjectContext)
+        newTransaction.date = Date()
+        newTransaction.income = !forTop
+        
+        topTFEditing ?
+        (newTransaction.amount = topTransferAmount) :
+        (newTransaction.amount = botTransferAmount)
+        
+        newTransaction.tDescription = "transfer with " + otherWallet
+        newTransaction.wallet = fromWallet
+        fromWallet.addTransaction(newTransaction)
+        CoreDataService.shared.saveContext()
     }
     
     private func setNumber(textField: UITextField) {
