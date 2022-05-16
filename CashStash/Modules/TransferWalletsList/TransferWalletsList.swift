@@ -11,6 +11,12 @@ import UIKit
 
 class TransferWalletsList: UIViewController {
     
+    func setupVC(wallets: [WalletEntity], transferDirection: TransferDirection?, delegate: TransferWalletsListProtocol) {
+        viewModel.wallets = wallets
+        viewModel.transferDirection = transferDirection
+        viewModel.delegate = delegate
+    }
+    
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             tableView.delegate = self

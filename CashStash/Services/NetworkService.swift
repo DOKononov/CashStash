@@ -51,6 +51,32 @@ class NetworkService {
         }.resume()
     }
     
+    func getRate(_ top: String, to bot: String, complition: @escaping (Double) -> Void) {
+        guard let url = URL(string: excangeCurrency(from: top, to: bot, amount: 1)) else {return}
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        
+        URLSession.shared.dataTask(with: request) { data, responce, error in
+            if let error = error {
+                print(error.localizedDescription)
+                if let rate: Double = UserDefaults.standard.object(forKey: top + bot) as? Double {
+                    complition(rate)
+                }
+            } else if let data = data {
+                if let result = try? JSONDecoder().decode(ExcangeModel.self, from: data) {
+                   if  let rate = result.rates[bot]?.rate.double() {
+                       DispatchQueue.main.async {
+                           UserDefaults.standard.set(rate, forKey: top + bot)
+                           complition(rate)
+                       }
+                    }
+                }
+            }
+
+            
+        }.resume()
+    }
+    
     
 }
 

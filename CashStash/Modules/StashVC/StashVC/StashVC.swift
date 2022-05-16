@@ -37,7 +37,7 @@ final class StashVC: UIViewController {
     private func bind() {
         viewModel.didChangeContent = {
             self.tableView.reloadData()
-            self.totalAmountLabel.text = self.viewModel.totalAmount.myRound().formatNumber() + " USD"
+            self.totalAmountLabel.text = self.viewModel.totalAmount.formatNumber() + " USD"
             self.setTransferButtonStatus()
         }
     }

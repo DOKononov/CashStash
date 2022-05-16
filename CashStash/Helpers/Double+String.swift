@@ -18,7 +18,7 @@ extension Double {
         formater.numberStyle = .decimal
         formater.decimalSeparator = "."
         formater.groupingSeparator = " "
-        guard let str = formater.string(from: self as NSNumber) else {return "error"}
+         guard let str = formater.string(from: self.myRound() as NSNumber) else {return "error"}
         return str
     }
     

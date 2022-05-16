@@ -13,7 +13,7 @@ class TransferTableViewCell: UITableViewCell {
     @IBOutlet weak var amountLabel: UILabel!
     let cellHeight: CGFloat = 50
     
-    func setupCell(wallet: WalletEntity, transferDirection: String) {
+    func setupCell(wallet: WalletModel, transferDirection: String) {
         guard let walletName = wallet.walletName else {return}
         walletNameLabel.text = transferDirection + walletName
         amountLabel.text = wallet.amount.formatNumber()
