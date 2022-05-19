@@ -34,7 +34,11 @@ final class StashViewModel: NSObject, StashViewModelProtocol, NSFetchedResultsCo
     
     func updateTotalAmount() {
         var tempSumm = 0.0
-        wallets.forEach { tempSumm += ($0.amount / $0.rate).myRound() }
+        wallets.forEach { wallet in
+            guard let walletCurrency = wallet.currency else {return}
+            NetworkService().getRateToUSD(to: walletCurrency) { wallet.rate = $0 }
+            tempSumm += (wallet.amount / wallet.rate).myRound()
+        }
         totalAmount = tempSumm
     }
     

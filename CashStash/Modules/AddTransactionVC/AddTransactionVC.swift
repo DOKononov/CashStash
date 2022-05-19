@@ -49,6 +49,7 @@ final class AddTransactionVC: UIViewController {
                                                description: description)
         
         viewModel.saveDidTaped(components: components)
+        //TODO: ????
         viewModel.delegate?.updateWalletInfo()
         closeVC()
     }

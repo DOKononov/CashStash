@@ -15,35 +15,56 @@ final class AddWalletVC: UIViewController {
     @IBOutlet private weak var currencyTF: UITextField!
     
     var viewModel: AddWalletViewModelProtocol = AddWalletViewModel()
+    lazy private var textFieldService = TextFieldService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        walletNameLabel.text = "New Wallet"
+        setupVC()
         walletNameTF.becomeFirstResponder()
         callPickerForCurrency()
     }
     
     @IBAction private func saveDidTapped(_ sender: UIButton) {
         guard walletNameTF.hasText, amountTF.hasText, currencyTF.hasText else { return }
-        
         guard let walletName = walletNameTF.text,
               let amount = amountTF.text,
               let currency = currencyTF.text else {return}
+        if viewModel.wallet == nil {
+            //create new wallete
+            viewModel.saveDidTapped(walletName: walletName, amount: amount, currency: currency)
+            self.dismiss(animated: true)
+        } else {
+            //edite wallete
+            viewModel.editeWallete(walletName: walletName, amount: amount, currency: currency)
+            self.navigationController?.popViewController(animated: true)
+        }
+       
+    }
+    
+    //funcs
+    
+    private func setupVC() {
+        if let wallet = viewModel.wallet {
+            //edite
+            walletNameLabel.text = "Edite wallete:"
+            walletNameTF.text = wallet.walletName
+            amountTF.text = wallet.amount.formatNumber()
+            currencyTF.text = wallet.currency
+            
+        } else {
+            //create new
+            walletNameLabel.text = "Add new wallete"
+        }
         
-        viewModel.saveDidTapped(walletName: walletName, amount: amount, currency: currency)
-        self.dismiss(animated: true)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
     }
-    
-
 }
 
 
 extension AddWalletVC: UIPickerViewDataSource, UIPickerViewDelegate {
-    
     func callPickerForCurrency() {
         let picker = UIPickerView()
         picker.dataSource = self
@@ -52,7 +73,7 @@ extension AddWalletVC: UIPickerViewDataSource, UIPickerViewDelegate {
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-       return 1
+        return 1
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
@@ -60,7 +81,6 @@ extension AddWalletVC: UIPickerViewDataSource, UIPickerViewDelegate {
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        
         return CurrencyList.allCases[row].rawValue
     }
     
@@ -72,12 +92,7 @@ extension AddWalletVC: UIPickerViewDataSource, UIPickerViewDelegate {
 
 extension AddWalletVC: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        if textField == amountTF, string == "," {
-            if let text = textField.text {
-                textField.text = text + "."
-                return false
-            }
-        }
-        return true
+        let result = textFieldService.setupTF(textField: textField, string: string)
+        return result.shouldChangeCharactersIn
     }
 }

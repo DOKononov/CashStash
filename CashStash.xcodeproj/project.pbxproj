@@ -10,6 +10,7 @@
 		5634E39C280D6AA5009AA3DA /* AddWalletViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5634E39B280D6AA5009AA3DA /* AddWalletViewModel.swift */; };
 		5634E39F280F1F04009AA3DA /* WalletHistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5634E39D280F1F04009AA3DA /* WalletHistoryVC.swift */; };
 		5634E3A0280F1F04009AA3DA /* WalletHistoryVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5634E39E280F1F04009AA3DA /* WalletHistoryVC.xib */; };
+		563B454028369EAC00E38C91 /* TextFieldService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563B453F28369EAB00E38C91 /* TextFieldService.swift */; };
 		565630182811C4D900B3595E /* WalletEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565630142811C4D900B3595E /* WalletEntity+CoreDataClass.swift */; };
 		565630192811C4D900B3595E /* WalletEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565630152811C4D900B3595E /* WalletEntity+CoreDataProperties.swift */; };
 		5656301A2811C4D900B3595E /* TransactionEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565630162811C4D900B3595E /* TransactionEntity+CoreDataClass.swift */; };
@@ -60,6 +61,7 @@
 		5634E39B280D6AA5009AA3DA /* AddWalletViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWalletViewModel.swift; sourceTree = "<group>"; };
 		5634E39D280F1F04009AA3DA /* WalletHistoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletHistoryVC.swift; sourceTree = "<group>"; };
 		5634E39E280F1F04009AA3DA /* WalletHistoryVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WalletHistoryVC.xib; sourceTree = "<group>"; };
+		563B453F28369EAB00E38C91 /* TextFieldService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldService.swift; sourceTree = "<group>"; };
 		565630142811C4D900B3595E /* WalletEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WalletEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		565630152811C4D900B3595E /* WalletEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WalletEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		565630162811C4D900B3595E /* TransactionEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TransactionEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -245,6 +247,7 @@
 			isa = PBXGroup;
 			children = (
 				568E0BB827F7196000A91E4D /* NetworkService.swift */,
+				563B453F28369EAB00E38C91 /* TextFieldService.swift */,
 				566863D92804487D00FDF345 /* CoreDataService */,
 			);
 			path = Services;
@@ -451,6 +454,7 @@
 				566863E3280465DA00FDF345 /* String+Double.swift in Sources */,
 				566DD1912827DE8900445C39 /* TransferViewModel.swift in Sources */,
 				566863E02804569800FDF345 /* AddWalletVC.swift in Sources */,
+				563B454028369EAC00E38C91 /* TextFieldService.swift in Sources */,
 				5634E39C280D6AA5009AA3DA /* AddWalletViewModel.swift in Sources */,
 				566863EB28048C2500FDF345 /* Double+String.swift in Sources */,
 				5681BABF2827EF7C0068D968 /* TransferWalletsListTableViewCell.swift in Sources */,

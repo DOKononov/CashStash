@@ -45,20 +45,31 @@ final class WalletHistoryVC: UIViewController {
         tableView.register(cellNib, forCellReuseIdentifier: "\(TransactionCell.self)")
     }
     
-    //MARK: add transaction
+    //navigationItems/berButtons
     private func setupNavigationItem() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add,
+        let addTransactionButtom = UIBarButtonItem(barButtonSystemItem: .add,
                                                             target: self,
                                                             action: #selector(addNewTransaction))
+        let settingsButton = UIBarButtonItem(image: UIImage(systemName: "gear"),
+                                             style: .plain,
+                                             target: self,
+                                             action: #selector(settingsDidPressed))
+        navigationItem.rightBarButtonItems = [addTransactionButtom, settingsButton]
     }
     
-    @objc func addNewTransaction() {
+    @objc private func addNewTransaction() {
         let addTransactionsVC = AddTransactionVC(nibName: "\(AddTransactionVC.self)", bundle: nil)
         addTransactionsVC.viewModel.wallet = viewModel.wallet
         addTransactionsVC.viewModel.delegate = self
         present(addTransactionsVC, animated: true)
     }
     
+    @objc private func settingsDidPressed() {
+        viewModel.settingsButtonDidTapped(viewController: self) {
+            self.updateWalletInfo()
+        }
+        updateWalletInfo()
+    }
 }
 
 //MARK: tableView

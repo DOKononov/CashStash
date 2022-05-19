@@ -12,7 +12,6 @@ protocol TransferViewModelProtocol {
     var wallets: [WalletEntity] { get set }
     var walletsModels: [WalletModel]  { get set }
     var topTFEditing: Bool? { get set }
-    var bufferNumber: Double { get set }
     var conversionRate: Double { get set }
     var bufferNumberDidChanged: (() -> Void)? { get set }
     func saveButtonDidTapped()
@@ -24,12 +23,10 @@ final class TransferViewModel: TransferViewModelProtocol {
  
     var topTFEditing: Bool?
     var conversionRate = 0.0
-
-    private var decimalFlag = false
-    private var decimalCounter = 0.0
+    lazy var textFieldService = TextFieldService()
     
     var bufferNumberDidChanged: (() -> Void)?
-    var bufferNumber = 0.0 { didSet { bufferNumberDidChanged?() } }
+    private var bufferNumber = 0.0 { didSet { bufferNumberDidChanged?() } }
     var wallets: [WalletEntity] = [] {
         didSet {
             getRateForWallets()
@@ -37,6 +34,7 @@ final class TransferViewModel: TransferViewModelProtocol {
         }
     }
     var walletsModels: [WalletModel] = []
+    private lazy var networkService = NetworkService()
     
     private var topWalletDefaultAmount = 0.0
     private var botWalletDefaultAmount = 0.0
@@ -97,15 +95,9 @@ final class TransferViewModel: TransferViewModelProtocol {
         CoreDataService.shared.saveContext()
     }
     
-    private func setNumber(textField: UITextField) {
-        if let number = textField.text?.double() {
-            bufferNumber = number
-        }
-    }
-    
     private func getRateForWallets() {
         if let topCurrency = wallets[0].currency, let botCurrency = wallets[1].currency {
-            NetworkService().getRate(topCurrency, to: botCurrency) { rate in
+            networkService.getRate(topCurrency, to: botCurrency) { rate in
                 self.conversionRate = rate
             }
         }
@@ -123,59 +115,12 @@ final class TransferViewModel: TransferViewModelProtocol {
 //setupTextField
 extension TransferViewModel {
     func setupTextField(textField: UITextField, string: String) -> Bool {
-        //only one dot
-        if let text = textField.text {
-            if text.contains(".") && string == "." {
-                return false
-            }
+        
+       let result =  textFieldService.setupTF(textField: textField, string: string)
+        
+        if let responceNumber = result.numberToReturn {
+            bufferNumber = responceNumber
         }
-        //text -= string
-        if string.isEmpty, var text = textField.text, text != "0" {
-            print("text -= string")
-            text.removeLast()
-            if decimalFlag && decimalCounter > 0 {
-                decimalCounter -= 1
-            }
-            if text.last == "." {
-                decimalFlag = true
-                textField.text = text.double().formatNumber() + "."
-                setNumber(textField: textField)
-                return false
-            } else {
-                if decimalCounter == 0 {
-                    decimalFlag = false
-                }
-                textField.text = text.double().formatNumber()
-                setNumber(textField: textField)
-                return false
-            }
-        }
-        guard decimalCounter < 2 else {return false}
-        if let text = textField.text {
-            //max chars
-            if text.count > 13  && !string.isEmpty {
-                print("max chars")
-                return false
-            }
-            //change comma for dot
-            if string == "," || string == "."{
-                print("change comma for dot")
-                decimalFlag = true
-                textField.text = text + "."
-                setNumber(textField: textField)
-                return false
-            }
-            //text += string
-            if Double(string) != nil && decimalCounter < 2{
-                print("text += string")
-                if decimalFlag {
-                    decimalCounter += 1
-                }
-                textField.text =  (text + string).double().formatNumber()
-                setNumber(textField: textField)
-                return false
-            }
-        }
-        return true
+        return result.shouldChangeCharactersIn
     }
 }
