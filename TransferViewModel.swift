@@ -67,6 +67,7 @@ final class TransferViewModel: TransferViewModelProtocol {
     }
     
     func saveButtonDidTapped() {
+        guard bufferNumber != 0 else {return}
         
         createNewTransaction(fromWallet: wallets[0],
                              forTop: true,

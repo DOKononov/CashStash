@@ -8,6 +8,7 @@
 import Foundation
 
 enum CurrencyList: String, CaseIterable {
+    //you can easily add new currency here
     case EUR = "EUR"
     case USD = "USD"
     case BYN = "BYN"

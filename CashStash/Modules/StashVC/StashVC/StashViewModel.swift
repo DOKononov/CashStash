@@ -15,6 +15,7 @@ protocol StashViewModelProtocol {
     var totalAmount: Double { get }
     func updateTotalAmount()
     func loadWalletsEntities()
+    func updateWalletsRates()
     func deleteWallet(indexPath: IndexPath) -> UISwipeActionsConfiguration?
 }
 
@@ -35,11 +36,16 @@ final class StashViewModel: NSObject, StashViewModelProtocol, NSFetchedResultsCo
     func updateTotalAmount() {
         var tempSumm = 0.0
         wallets.forEach { wallet in
-            guard let walletCurrency = wallet.currency else {return}
-            NetworkService().getRateToUSD(to: walletCurrency) { wallet.rate = $0 }
             tempSumm += (wallet.amount / wallet.rate).myRound()
         }
         totalAmount = tempSumm
+    }
+    
+    func updateWalletsRates() {
+        wallets.forEach { wallet in
+            guard let walletCurrency = wallet.currency else {return}
+            NetworkService().getRateToUSD(to: walletCurrency) { wallet.rate = $0 }
+        }
     }
     
     func loadWalletsEntities() {
@@ -71,11 +77,7 @@ final class StashViewModel: NSObject, StashViewModelProtocol, NSFetchedResultsCo
         let request = WalletEntity.fetchRequest()
         let sortDescriptor = NSSortDescriptor(key: "walletName", ascending: true)
         request.sortDescriptors = [sortDescriptor]
-        
-        fetchResultContoller = NSFetchedResultsController(fetchRequest: request,
-                                                          managedObjectContext: CoreDataService.shared.managedObjectContext,
-                                                          sectionNameKeyPath: nil,
-                                                          cacheName: nil)
+        fetchResultContoller = NSFetchedResultsController(fetchRequest: request, managedObjectContext: CoreDataService.shared.managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
         fetchResultContoller.delegate = self
     }
     

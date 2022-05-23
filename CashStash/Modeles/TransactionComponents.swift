@@ -19,5 +19,4 @@ final class TransactionComponents {
         self.date = date
         self.description = description
     }
-    
 }

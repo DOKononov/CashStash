@@ -10,7 +10,7 @@ import Foundation
 protocol AddWalletViewModelProtocol {
     func saveDidTapped(walletName: String, amount: String, currency: String)
     var wallet: WalletEntity? { get set }
-    func editeWallete(walletName: String, amount: String, currency: String)
+    func editeWallet(walletName: String, amount: String, currency: String)
 }
 
 final class AddWalletViewModel: AddWalletViewModelProtocol {
@@ -28,7 +28,7 @@ final class AddWalletViewModel: AddWalletViewModelProtocol {
         CoreDataService.shared.saveContext()
     }
     
-    func editeWallete(walletName: String, amount: String, currency: String) {
+    func editeWallet(walletName: String, amount: String, currency: String) {
         wallet?.walletName = walletName
         wallet?.amount = amount.double()
         wallet?.currency = currency

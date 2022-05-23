@@ -27,6 +27,7 @@ final class AddTransactionVC: UIViewController {
     @IBOutlet weak var descriptionTF: UITextField!
     @IBOutlet weak var amountTF: UITextField! {  didSet { amountTF.delegate = self } }
     @IBOutlet weak var tTypeTF: UITextField!
+    private lazy var textFieldService = TextFieldService()
     
     var viewModel: AddTransactionProtocol = AddTransactionViewModel()
     
@@ -41,7 +42,7 @@ final class AddTransactionVC: UIViewController {
     @IBAction private func saveDidTapped(_ sender: UIButton) {
         guard dateTF.hasText, descriptionTF.hasText, amountTF.hasText, tTypeTF.hasText else {return}
         guard let amount = amountTF.text,
-                let description = descriptionTF.text,
+              let description = descriptionTF.text,
               let date = viewModel.date,
               let income = viewModel.income else {return}
         
@@ -131,13 +132,7 @@ extension AddTransactionVC: UIPickerViewDelegate, UIPickerViewDataSource {
 
 extension AddTransactionVC: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        if textField == amountTF, string == "," {
-            if let text = textField.text {
-                textField.text = text + "."
-                return false
-            }
-        }
-        return true
+        let setup = textFieldService.setupTF(textField: textField, string: string)
+        return setup.shouldChangeCharactersIn
     }
-    
 }

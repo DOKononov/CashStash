@@ -35,27 +35,23 @@ final class AddWalletVC: UIViewController {
             self.dismiss(animated: true)
         } else {
             //edite wallete
-            viewModel.editeWallete(walletName: walletName, amount: amount, currency: currency)
+            viewModel.editeWallet(walletName: walletName, amount: amount, currency: currency)
             self.navigationController?.popViewController(animated: true)
         }
-       
     }
     
     //funcs
-    
     private func setupVC() {
         if let wallet = viewModel.wallet {
             //edite
-            walletNameLabel.text = "Edite wallete:"
+            walletNameLabel.text = "Edite wallet:"
             walletNameTF.text = wallet.walletName
             amountTF.text = wallet.amount.formatNumber()
             currencyTF.text = wallet.currency
-            
         } else {
             //create new
-            walletNameLabel.text = "Add new wallete"
+            walletNameLabel.text = "Add new wallet"
         }
-        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -70,6 +66,7 @@ extension AddWalletVC: UIPickerViewDataSource, UIPickerViewDelegate {
         picker.dataSource = self
         picker.delegate = self
         currencyTF.inputView = picker
+        currencyTF.text = CurrencyList.allCases.first?.rawValue
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {

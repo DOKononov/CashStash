@@ -11,7 +11,6 @@ final class StashVC: UIViewController {
 
     @IBOutlet weak var totalAmountLabel: UILabel!
     private var viewModel: StashViewModelProtocol = StashViewModel()
-    
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             tableView.delegate = self
@@ -52,7 +51,7 @@ final class StashVC: UIViewController {
     }
 }
 
-
+//TableView
 extension StashVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.wallets.count
@@ -69,40 +68,31 @@ extension StashVC: UITableViewDelegate, UITableViewDataSource {
         let walleteHistoryVC = WalletHistoryVC(nibName: "\(WalletHistoryVC.self)", bundle: nil)
         walleteHistoryVC.viewModel.wallet = viewModel.wallets[indexPath.row]
         navigationController?.pushViewController(walleteHistoryVC, animated: true)
-        
     }
     
-    //MARK: -delete entity
+    //delete entity
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
     viewModel.deleteWallet(indexPath: indexPath)
     }
 }
 
-// MARK: - BarButton
+// BarButton
 extension StashVC {
     private func setupNavigationItem() {
-        let newWalletButton = UIBarButtonItem(barButtonSystemItem: .add,
-                                                            target: self,
-                                                            action:  #selector(addNewWallet))
-
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "arrow.clockwise"),
-                                                           style: .done,
-                                                           target: self,
-                                                           action: #selector(refreshTotal))
-        let transferButton = UIBarButtonItem(image: UIImage(systemName: "repeat"),
-                                                            style: .plain,
-                                                            target: self,
-                                                            action: #selector(transferButtonDidPressed))
-        
+        let newWalletButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action:  #selector(addNewWallet))
+        let refreshButton = UIBarButtonItem(image: UIImage(systemName: "arrow.clockwise"), style: .done, target: self, action: #selector(refreshTotal))
+        let transferButton = UIBarButtonItem(image: UIImage(systemName: "repeat"), style: .plain, target: self, action: #selector(transferButtonDidPressed))
+        navigationItem.leftBarButtonItem = refreshButton
         navigationItem.rightBarButtonItems = [newWalletButton, transferButton]
     }
-    
+
     @objc private func addNewWallet() {
         let currencyPage = AddWalletVC(nibName: "\(AddWalletVC.self)", bundle: nil)
         present(currencyPage, animated: true)
     }
     
     @objc private func refreshTotal() {
+        viewModel.updateWalletsRates()
         viewModel.updateTotalAmount()
     }
     
