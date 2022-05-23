@@ -34,5 +34,4 @@ final class AddWalletViewModel: AddWalletViewModelProtocol {
         wallet?.currency = currency
         CoreDataService.shared.saveContext()
     }
-    
 }
